@@ -8,9 +8,15 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  title: 'IdeaCheck AI — Investor-Ready Startup Validation & Founder Ecosystem',
+  description: 'The ecosystem where founders turn ideas into real, validated startups through evidence-based customer validation, structured peer feedback, collaborator matching, and investor discovery.',
+  keywords: ['startup validation', 'founder ecosystem', 'idea check', 'prototype testing', 'investor discovery', 'AI startup analysis'],
+  authors: [{ name: 'IdeaCheck AI' }],
+  openGraph: {
+    title: 'IdeaCheck AI — Evidence-Based Startup Ecosystem',
+    description: 'Discover, evaluate, test, build, and grow validated startup ideas with real founder credibility.',
+    type: 'website',
+  },
   icons: {
     icon: [
       {

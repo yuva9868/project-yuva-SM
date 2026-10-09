@@ -10,7 +10,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Sparkles, Menu, Plus, Bell, Trophy, BookOpen, Compass, Shield } from 'lucide-react';
+import { Sparkles, Menu, Plus, Bell, Trophy, BookOpen, Compass, Shield, Users } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { NotificationsDrawer } from '@/components/community/notifications-drawer';
 import { getStoredNotifications } from '@/lib/community-data';
@@ -58,6 +58,10 @@ export function Header() {
               <Link href="/community" className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors">
                 <Compass className="w-4 h-4 text-primary" />
                 <span>Explore Ecosystem</span>
+              </Link>
+              <Link href="/mentors" className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors">
+                <Users className="w-4 h-4 text-emerald-400" />
+                <span>Mentors</span>
               </Link>
               <Link href="/community/leaderboard" className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors">
                 <Trophy className="w-4 h-4 text-amber-500" />
@@ -165,6 +169,9 @@ export function Header() {
           <nav className="md:hidden border-t border-border bg-card px-4 py-4 space-y-3">
             <Link href="/community" className="block text-sm font-medium hover:text-primary transition-colors">
               Explore Community Ecosystem
+            </Link>
+            <Link href="/mentors" className="block text-sm font-medium hover:text-primary transition-colors">
+              Mentors & Expert Directory
             </Link>
             <Link href="/community/leaderboard" className="block text-sm font-medium hover:text-primary transition-colors">
               Community Leaderboard

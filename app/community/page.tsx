@@ -8,16 +8,20 @@ import { Input } from '@/components/ui/input';
 import { 
   Project, 
   ProjectStage, 
-  RequirementBadge 
+  RequirementBadge,
+  FounderProfile 
 } from '@/lib/community-types';
 import { 
   getStoredProjects, 
+  getStoredFounders,
   COMMUNITY_STAGES, 
-  REQUIREMENT_OPTIONS 
+  REQUIREMENT_OPTIONS,
+  resetToDemoData
 } from '@/lib/community-data';
 import { CATEGORIES } from '@/lib/mock-data';
+import { calculateProjectRelevance } from '@/lib/matching';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { 
   Heart, 
   MessageCircle, 
@@ -29,7 +33,11 @@ import {
   ExternalLink,
   Layers,
   Award,
-  CheckCircle2
+  CheckCircle2,
+  DollarSign,
+  ShieldCheck,
+  RefreshCw,
+  Compass
 } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
 import { useRouter } from 'next/navigation';
@@ -38,6 +46,7 @@ export default function CommunityHomePage() {
   const { user } = useAuth();
   const router = useRouter();
   const [projects, setProjects] = useState<Project[]>([]);
+  const [currentUserProfile, setCurrentUserProfile] = useState<FounderProfile | null>(null);
   const [supportedProjects, setSupportedProjects] = useState<string[]>([]);
   const [savedProjects, setSavedProjects] = useState<string[]>([]);
 
@@ -46,8 +55,7 @@ export default function CommunityHomePage() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedStage, setSelectedStage] = useState<string>('all');
   const [selectedRequirement, setSelectedRequirement] = useState<string>('all');
-  const [seekingInvestmentOnly, setSeekingInvestmentOnly] = useState(false);
-  const [sortBy, setSortBy] = useState<'trending' | 'newest' | 'discussed' | 'supported' | 'rated'>('trending');
+  const [sortBy, setSortBy] = useState<'relevant' | 'updated' | 'newest' | 'discussed' | 'supported' | 'prototype'>('relevant');
   const [feedTab, setFeedTab] = useState<'all' | 'recommended' | 'investment' | 'prototypes'>('all');
   
   const [isHydrated, setIsHydrated] = useState(false);
@@ -57,15 +65,14 @@ export default function CommunityHomePage() {
     const loadedProjects = getStoredProjects();
     setProjects(loadedProjects);
 
+    const founders = getStoredFounders();
     if (user) {
+      const myProfile = founders.find(f => f.id === user.id || f.username.toLowerCase() === user.email.split('@')[0].toLowerCase());
+      setCurrentUserProfile(myProfile || null);
+
       const storedSupports = localStorage.getItem(`ideacheck_supported_${user.id}`);
       if (storedSupports) {
         try { setSupportedProjects(JSON.parse(storedSupports)); } catch (e) {}
-      }
-
-      const storedSaves = localStorage.getItem(`ideacheck_saved_${user.id}`);
-      if (storedSaves) {
-        try { setSavedProjects(JSON.parse(storedSaves)); } catch (e) {}
       }
     }
   }, [user]);
@@ -106,49 +113,55 @@ export default function CommunityHomePage() {
     }
   };
 
-  // Filtering Logic
-  const filteredProjects = projects.filter(p => {
-    if (p.visibility === 'private') return false;
+  const handleResetDemoData = () => {
+    resetToDemoData();
+    setProjects(getStoredProjects());
+  };
 
-    // Tab Filters
-    if (feedTab === 'investment' && !p.fundingInfo?.seekingInvestment) return false;
-    if (feedTab === 'prototypes' && p.prototypeMedia?.length === 0 && p.prototypeLinks?.length === 0) return false;
+  // Filter & Sort Pipeline
+  const filteredAndSortedProjects = useMemo(() => {
+    return projects.filter(p => {
+      if (p.visibility === 'private') return false;
 
-    // Search query
-    if (searchQuery.trim() !== '') {
-      const q = searchQuery.toLowerCase();
-      const matchName = p.name.toLowerCase().includes(q);
-      const matchTagline = p.tagline.toLowerCase().includes(q);
-      const matchFounder = p.founderName.toLowerCase().includes(q);
-      const matchProblem = p.problemStatement.toLowerCase().includes(q);
-      const matchTech = p.prototypeLinks.some(l => l.label.toLowerCase().includes(q) || l.type.toLowerCase().includes(q));
-      if (!matchName && !matchTagline && !matchFounder && !matchProblem && !matchTech) return false;
-    }
+      // Tab Filters
+      if (feedTab === 'investment' && !p.fundingInfo?.seekingInvestment) return false;
+      if (feedTab === 'prototypes' && (p.prototypeMedia?.length === 0 && p.prototypeLinks?.length === 0)) return false;
 
-    // Category filter
-    if (selectedCategory !== 'all' && p.category !== selectedCategory) return false;
+      // Search query
+      if (searchQuery.trim() !== '') {
+        const q = searchQuery.toLowerCase();
+        const matchName = p.name.toLowerCase().includes(q);
+        const matchTagline = p.tagline.toLowerCase().includes(q);
+        const matchFounder = p.founderName.toLowerCase().includes(q);
+        const matchProblem = p.problemStatement.toLowerCase().includes(q);
+        const matchCategory = p.category.toLowerCase().includes(q);
+        const matchIndustry = p.industry?.toLowerCase().includes(q);
+        if (!matchName && !matchTagline && !matchFounder && !matchProblem && !matchCategory && !matchIndustry) return false;
+      }
 
-    // Stage filter
-    if (selectedStage !== 'all' && p.stage !== selectedStage) return false;
+      // Category filter
+      if (selectedCategory !== 'all' && p.category !== selectedCategory) return false;
 
-    // Requirement filter
-    if (selectedRequirement !== 'all' && !p.requirements?.includes(selectedRequirement as RequirementBadge)) return false;
+      // Stage filter
+      if (selectedStage !== 'all' && p.stage !== selectedStage) return false;
 
-    // Seeking investment toggle
-    if (seekingInvestmentOnly && !p.fundingInfo?.seekingInvestment) return false;
+      // Requirement filter
+      if (selectedRequirement !== 'all' && !p.requirements?.includes(selectedRequirement as RequirementBadge)) return false;
 
-    return true;
-  }).sort((a, b) => {
-    if (sortBy === 'newest') return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-    if (sortBy === 'discussed') return b.commentsCount - a.commentsCount;
-    if (sortBy === 'supported') return b.supportersCount - a.supportersCount;
-    if (sortBy === 'rated') return b.validationScore - a.validationScore;
+      return true;
+    }).sort((a, b) => {
+      if (sortBy === 'newest') return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+      if (sortBy === 'updated') return new Date(b.updatedAt || b.createdAt).getTime() - new Date(a.updatedAt || a.createdAt).getTime();
+      if (sortBy === 'discussed') return b.commentsCount - a.commentsCount;
+      if (sortBy === 'supported') return b.supportersCount - a.supportersCount;
+      if (sortBy === 'prototype') return (b.prototypeLinks?.length || 0) - (a.prototypeLinks?.length || 0);
 
-    // Default Trending
-    const scoreA = a.supportersCount * 2 + a.commentsCount * 3 + a.viewsCount * 0.1;
-    const scoreB = b.supportersCount * 2 + b.commentsCount * 3 + b.viewsCount * 0.1;
-    return scoreB - scoreA;
-  });
+      // Default: Relevant to Me / AI match
+      const matchA = calculateProjectRelevance(a, currentUserProfile).score;
+      const matchB = calculateProjectRelevance(b, currentUserProfile).score;
+      return matchB - matchA;
+    });
+  }, [projects, feedTab, searchQuery, selectedCategory, selectedStage, selectedRequirement, sortBy, currentUserProfile]);
 
   const getStageColor = (stage: ProjectStage) => {
     switch (stage) {
@@ -164,7 +177,7 @@ export default function CommunityHomePage() {
   };
 
   if (!isHydrated) {
-    return <div className="min-h-screen flex items-center justify-center">Loading Ecosystem...</div>;
+    return <div className="min-h-screen flex items-center justify-center">Loading Startup Ecosystem...</div>;
   }
 
   return (
@@ -172,51 +185,51 @@ export default function CommunityHomePage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-primary/5 via-background to-background border-b border-border/40">
+      <section className="pt-24 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-primary/10 via-background to-background border-b border-border/40">
         <div className="max-w-5xl mx-auto text-center space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
             <Sparkles className="w-4 h-4 fill-current" />
-            <span>The Professional Startup & Founder Ecosystem</span>
+            <span>The Evidence-Driven Startup Ecosystem</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-foreground max-w-4xl mx-auto leading-[1.15]">
-            Discover Ideas. Meet Founders. <span className="text-primary">Build Something Real.</span>
+            Discover Ideas. Test Prototypes. <span className="text-primary">Build Validated Startups.</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Share what you&apos;re building, get meaningful feedback, find collaborators, and connect with people who can help take your idea forward.
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Where founders demonstrate what they can build, receive structured feedback, test demand in Validation Labs, and connect with collaborators and investors.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <Link href="/submit">
-              <Button size="lg" className="gap-2 text-base font-bold shadow-lg shadow-primary/25 px-8 rounded-xl">
+              <Button size="lg" className="gap-2 text-sm sm:text-base font-bold shadow-lg shadow-primary/25 px-8 rounded-xl">
                 <Plus className="w-5 h-5" />
                 <span>Share Your Project</span>
               </Button>
             </Link>
             <Link href="/community/leaderboard">
-              <Button variant="outline" size="lg" className="gap-2 text-base font-semibold rounded-xl">
+              <Button variant="outline" size="lg" className="gap-2 text-sm sm:text-base font-semibold rounded-xl">
                 <Award className="w-5 h-5 text-amber-500" />
-                <span>Top Builders</span>
+                <span>Ecosystem Leaderboard</span>
               </Button>
             </Link>
           </div>
 
-          {/* Philosophy Lifecycle Pill */}
-          <div className="pt-6 flex flex-wrap items-center justify-center gap-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-            <span>Idea</span>
+          {/* Philosophy Lifecycle */}
+          <div className="pt-4 flex flex-wrap items-center justify-center gap-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+            <span>Discover</span>
             <span>→</span>
-            <span className="text-primary font-bold">Prototype</span>
+            <span className="text-primary font-bold">Evaluate</span>
             <span>→</span>
-            <span>Feedback</span>
+            <span>Connect</span>
             <span>→</span>
-            <span>Collaboration</span>
+            <span className="text-emerald-400 font-bold">Test</span>
             <span>→</span>
-            <span>Validation</span>
+            <span>Improve</span>
             <span>→</span>
-            <span className="text-emerald-600 dark:text-emerald-400 font-bold">Funding</span>
+            <span>Build</span>
             <span>→</span>
-            <span>Launch</span>
+            <span className="text-primary font-bold">Grow</span>
           </div>
         </div>
       </section>
@@ -224,46 +237,47 @@ export default function CommunityHomePage() {
       {/* Main Content Area */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         {/* Feed Selection Tabs */}
-        <div className="flex items-center justify-between border-b border-border/80 pb-3 overflow-x-auto">
+        <div className="flex items-center justify-between border-b border-border/80 pb-3 overflow-x-auto gap-4">
           <div className="flex items-center gap-2 min-w-max">
             <Button
               variant={feedTab === 'all' ? 'default' : 'ghost'}
               size="sm"
               onClick={() => setFeedTab('all')}
-              className="rounded-lg font-semibold"
+              className="rounded-xl font-semibold text-xs"
             >
               All Projects
             </Button>
             <Button
               variant={feedTab === 'recommended' ? 'default' : 'ghost'}
               size="sm"
-              onClick={() => setFeedTab('recommended')}
-              className="rounded-lg font-semibold gap-1.5"
+              onClick={() => { setFeedTab('recommended'); setSortBy('relevant'); }}
+              className="rounded-xl font-semibold text-xs gap-1.5"
             >
-              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-              Recommended For You
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <span>Recommended For You</span>
             </Button>
             <Button
               variant={feedTab === 'investment' ? 'default' : 'ghost'}
               size="sm"
               onClick={() => setFeedTab('investment')}
-              className="rounded-lg font-semibold gap-1.5"
+              className="rounded-xl font-semibold text-xs gap-1.5"
             >
-              Seeking Investment
+              <DollarSign className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Investment Ready</span>
             </Button>
             <Button
               variant={feedTab === 'prototypes' ? 'default' : 'ghost'}
               size="sm"
               onClick={() => setFeedTab('prototypes')}
-              className="rounded-lg font-semibold gap-1.5"
+              className="rounded-xl font-semibold text-xs gap-1.5"
             >
-              <Layers className="w-3.5 h-3.5 text-indigo-500" />
-              Prototypes Ready
+              <Layers className="w-3.5 h-3.5 text-primary" />
+              <span>Prototypes Available</span>
             </Button>
           </div>
 
-          <div className="hidden lg:flex items-center gap-2 text-xs text-muted-foreground font-medium">
-            <span>Showing {filteredProjects.length} active startup projects</span>
+          <div className="flex items-center gap-2 text-xs text-muted-foreground font-medium shrink-0">
+            <span>Showing {filteredAndSortedProjects.length} startups</span>
           </div>
         </div>
 
@@ -273,10 +287,10 @@ export default function CommunityHomePage() {
           <div className="relative">
             <Search className="absolute left-3.5 top-3.5 w-4 h-4 text-muted-foreground" />
             <Input
-              placeholder="Search startups, projects, founders, technologies (e.g. Next.js, AI, Health, FlowSmith)..."
+              placeholder="Search startups, taglines, technologies, or founder names (e.g. Next.js, AI, Biometrics, Sarah Chen)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 h-11 bg-background text-sm rounded-xl"
+              className="pl-10 h-11 bg-background text-xs sm:text-sm rounded-xl"
             />
           </div>
 
@@ -288,7 +302,7 @@ export default function CommunityHomePage() {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="w-full h-9 px-3 rounded-lg border border-input bg-background text-xs text-foreground focus:ring-1 focus:ring-primary"
+                className="w-full h-9 px-3 rounded-xl border border-input bg-background text-xs text-foreground focus:ring-1 focus:ring-primary"
               >
                 <option value="all">All Categories</option>
                 {CATEGORIES.map(cat => (
@@ -303,7 +317,7 @@ export default function CommunityHomePage() {
               <select
                 value={selectedStage}
                 onChange={(e) => setSelectedStage(e.target.value)}
-                className="w-full h-9 px-3 rounded-lg border border-input bg-background text-xs text-foreground focus:ring-1 focus:ring-primary"
+                className="w-full h-9 px-3 rounded-xl border border-input bg-background text-xs text-foreground focus:ring-1 focus:ring-primary"
               >
                 <option value="all">All Stages</option>
                 {COMMUNITY_STAGES.map(st => (
@@ -318,9 +332,9 @@ export default function CommunityHomePage() {
               <select
                 value={selectedRequirement}
                 onChange={(e) => setSelectedRequirement(e.target.value)}
-                className="w-full h-9 px-3 rounded-lg border border-input bg-background text-xs text-foreground focus:ring-1 focus:ring-primary"
+                className="w-full h-9 px-3 rounded-xl border border-input bg-background text-xs text-foreground focus:ring-1 focus:ring-primary"
               >
-                <option value="all">All Requirements</option>
+                <option value="all">All Needs</option>
                 {REQUIREMENT_OPTIONS.map(req => (
                   <option key={req} value={req}>{req}</option>
                 ))}
@@ -333,57 +347,60 @@ export default function CommunityHomePage() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
-                className="w-full h-9 px-3 rounded-lg border border-input bg-background text-xs font-medium text-foreground focus:ring-1 focus:ring-primary"
+                className="w-full h-9 px-3 rounded-xl border border-input bg-background text-xs font-medium text-foreground focus:ring-1 focus:ring-primary"
               >
-                <option value="trending">Trending 🔥</option>
-                <option value="newest">Newest First ⚡</option>
+                <option value="relevant">Relevant to Me 🎯</option>
+                <option value="updated">Recently Updated ⚡</option>
+                <option value="newest">Newest First 📅</option>
                 <option value="discussed">Most Discussed 💬</option>
                 <option value="supported">Most Supported ❤️</option>
-                <option value="rated">Highest AI Score ⭐</option>
+                <option value="prototype">Prototype Available 🚀</option>
               </select>
             </div>
           </div>
         </div>
 
-        {/* Recommended Header notification if Recommended tab active */}
+        {/* Personalized Discovery Explanation Banner */}
         {feedTab === 'recommended' && (
-          <div className="p-4 bg-primary/5 border border-primary/20 rounded-xl flex items-center gap-3">
-            <Sparkles className="w-5 h-5 text-primary shrink-0" />
-            <p className="text-xs text-foreground">
-              <span className="font-bold">Personalized Ecosystem Feed:</span> Prioritizing projects matched to your technical skills, interest categories, and collaboration activity.
-            </p>
+          <div className="p-4 bg-primary/10 border border-primary/25 rounded-2xl flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <Sparkles className="w-5 h-5 text-primary shrink-0" />
+              <p className="text-xs text-foreground leading-relaxed">
+                <strong className="text-primary">Personalized Recommendations:</strong> Ranked by overlap between your technical skills, collaboration interests, and each founder's stated needs.
+              </p>
+            </div>
           </div>
         )}
 
         {/* Project Cards Feed */}
-        {filteredProjects.length === 0 ? (
+        {filteredAndSortedProjects.length === 0 ? (
           <Card className="p-12 text-center border-dashed rounded-2xl bg-card/50 space-y-4">
             <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center mx-auto text-muted-foreground">
               <SlidersHorizontal className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-lg font-bold">No startup projects found</h3>
-              <p className="text-sm text-muted-foreground max-w-md mx-auto mt-1">
-                Try loosening your filters or search query. Or be the first founder to post a project in this category!
+              <h3 className="text-base font-bold text-foreground">No startup projects matched criteria</h3>
+              <p className="text-xs text-muted-foreground max-w-md mx-auto mt-1">
+                Try loosening your filters or search query. Or launch your own startup project!
               </p>
             </div>
             <Link href="/submit">
-              <Button size="sm" className="gap-2">
+              <Button size="sm" className="gap-2 rounded-xl text-xs font-bold">
                 <Plus className="w-4 h-4" />
-                <span>Share Your Idea Now</span>
+                <span>Share Your Project</span>
               </Button>
             </Link>
           </Card>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {filteredProjects.map((project) => {
+            {filteredAndSortedProjects.map((project) => {
               const isSupported = supportedProjects.includes(project.id);
-              const isSaved = savedProjects.includes(project.id);
+              const relevance = calculateProjectRelevance(project, currentUserProfile);
 
               return (
                 <Card
                   key={project.id}
-                  className="group relative bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl rounded-2xl overflow-hidden flex flex-col p-6 space-y-5"
+                  className="group relative bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl rounded-2xl overflow-hidden flex flex-col p-6 space-y-4"
                 >
                   {/* Top Bar: Logo, Category, Stage, Validation Score */}
                   <div className="flex items-start justify-between gap-4">
@@ -401,16 +418,16 @@ export default function CommunityHomePage() {
                       )}
                       <div>
                         <Link href={`/community/${project.id}`}>
-                          <h3 className="text-xl font-black text-foreground group-hover:text-primary transition-colors flex items-center gap-2">
+                          <h3 className="text-lg font-black text-foreground group-hover:text-primary transition-colors flex items-center gap-2">
                             {project.name}
                             {project.featured && (
-                              <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-amber-500/10 text-amber-600 border border-amber-500/20">
+                              <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-amber-500/10 text-amber-500 border border-amber-500/20">
                                 Featured
                               </span>
                             )}
                           </h3>
                         </Link>
-                        <p className="text-xs font-semibold text-muted-foreground flex items-center gap-2 mt-0.5">
+                        <p className="text-xs font-semibold text-muted-foreground flex items-center gap-1.5 mt-0.5">
                           <span>{project.category}</span>
                           <span>•</span>
                           <span>{project.location}</span>
@@ -418,12 +435,12 @@ export default function CommunityHomePage() {
                       </div>
                     </div>
 
-                    <div className="flex flex-col items-end gap-1.5 shrink-0">
-                      <span className={`px-2.5 py-1 rounded-full text-xs font-bold ${getStageColor(project.stage)}`}>
+                    <div className="flex flex-col items-end gap-1 shrink-0">
+                      <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold ${getStageColor(project.stage)}`}>
                         {project.stage}
                       </span>
                       {project.validationScore > 0 && (
-                        <span className="text-[11px] font-extrabold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md flex items-center gap-1">
+                        <span className="text-[10px] font-extrabold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md flex items-center gap-1">
                           <CheckCircle2 className="w-3 h-3" />
                           {project.validationScore}/100 Score
                         </span>
@@ -432,9 +449,17 @@ export default function CommunityHomePage() {
                   </div>
 
                   {/* Tagline */}
-                  <p className="text-sm text-foreground/90 font-medium line-clamp-2 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-foreground/90 font-medium line-clamp-2 leading-relaxed">
                     {project.tagline}
                   </p>
+
+                  {/* Transparent Recommendation Note if High Relevance */}
+                  {relevance.score >= 50 && (
+                    <div className="p-2.5 bg-primary/5 border border-primary/15 rounded-xl text-[11px] text-primary flex items-start gap-1.5">
+                      <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                      <span>{relevance.explanation}</span>
+                    </div>
+                  )}
 
                   {/* Requirements Badges */}
                   {project.requirements && project.requirements.length > 0 && (
@@ -442,7 +467,7 @@ export default function CommunityHomePage() {
                       {project.requirements.slice(0, 3).map((req) => (
                         <span
                           key={req}
-                          className="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-primary/10 text-primary border border-primary/15"
+                          className="px-2.5 py-0.5 rounded-md text-[10px] font-semibold bg-secondary text-secondary-foreground border border-border"
                         >
                           {req}
                         </span>
@@ -455,13 +480,24 @@ export default function CommunityHomePage() {
                     </div>
                   )}
 
+                  {/* Prototype Indicator Banner */}
+                  {(project.prototypeLinks?.length > 0 || project.prototypeMedia?.length > 0) && (
+                    <div className="flex items-center gap-2 text-[11px] text-muted-foreground pt-1">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                      <span className="font-semibold text-foreground">Working Prototype Available</span>
+                      {project.prototypeLinks[0] && (
+                        <span className="text-muted-foreground">({project.prototypeLinks[0].type})</span>
+                      )}
+                    </div>
+                  )}
+
                   {/* Founder Profile Row */}
                   <div className="flex items-center justify-between pt-2 border-t border-border/40 mt-auto">
-                    <Link href={`/profile/${project.founderUsername}`} className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
+                    <Link href={`/profile/${project.founderUsername}`} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                       <img
                         src={project.founderAvatar}
                         alt={project.founderName}
-                        className="w-7 h-7 rounded-full object-cover border border-border"
+                        className="w-6 h-6 rounded-full object-cover border border-border"
                       />
                       <div>
                         <p className="text-xs font-bold text-foreground leading-tight">{project.founderName}</p>
@@ -470,27 +506,27 @@ export default function CommunityHomePage() {
                     </Link>
 
                     {project.fundingInfo?.seekingInvestment && (
-                      <span className="text-[11px] font-bold text-amber-600 dark:text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20">
-                        Seeking Investment
+                      <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-lg border border-emerald-500/20">
+                        Raising {project.fundingInfo.amountSeeking || 'Round'}
                       </span>
                     )}
                   </div>
 
                   {/* Bottom Stats & CTA */}
                   <div className="flex items-center justify-between pt-3 border-t border-border/60 text-xs text-muted-foreground">
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3">
                       <button
                         onClick={(e) => handleSupport(project.id, e)}
-                        className={`flex items-center gap-1.5 transition-colors font-semibold ${
+                        className={`flex items-center gap-1 transition-colors font-semibold ${
                           isSupported ? 'text-rose-500' : 'hover:text-rose-500'
                         }`}
                       >
-                        <Heart className={`w-4 h-4 ${isSupported ? 'fill-current' : ''}`} />
+                        <Heart className={`w-3.5 h-3.5 ${isSupported ? 'fill-current' : ''}`} />
                         <span>{project.supportersCount}</span>
                       </button>
 
-                      <Link href={`/community/${project.id}#discussion`} className="flex items-center gap-1.5 hover:text-foreground transition-colors font-medium">
-                        <MessageCircle className="w-4 h-4" />
+                      <Link href={`/community/${project.id}#discussion`} className="flex items-center gap-1 hover:text-foreground transition-colors font-medium">
+                        <MessageCircle className="w-3.5 h-3.5" />
                         <span>{project.commentsCount}</span>
                       </Link>
 
@@ -501,8 +537,8 @@ export default function CommunityHomePage() {
                     </div>
 
                     <Link href={`/community/${project.id}`}>
-                      <Button size="sm" variant="secondary" className="gap-1 text-xs font-bold rounded-lg group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                        <span>View Startup</span>
+                      <Button size="sm" variant="secondary" className="gap-1 text-xs font-bold rounded-xl group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                        <span>View Project</span>
                         <ExternalLink className="w-3 h-3" />
                       </Button>
                     </Link>
