@@ -10,7 +10,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Sparkles, Menu, Plus, Bell, Trophy, BookOpen, Compass, Shield, Users } from 'lucide-react';
+import { Sparkles, Menu, Plus, Bell, Trophy, BookOpen, Compass, Shield, Users, Briefcase } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { NotificationsDrawer } from '@/components/community/notifications-drawer';
 import { getStoredNotifications } from '@/lib/community-data';
@@ -71,6 +71,11 @@ export function Header() {
                 <BookOpen className="w-4 h-4 text-blue-500" />
                 <span>Guidelines</span>
               </Link>
+              <Link href="/workspaces" className="flex items-center gap-1.5 text-foreground hover:text-primary transition-colors font-semibold">
+                <Briefcase className="w-4 h-4 text-primary" />
+                <span>Workspaces</span>
+                <span className="text-[10px] font-bold bg-primary/20 text-primary px-1.5 py-0.2 rounded-full border border-primary/30">Private</span>
+              </Link>
               <Link href="/pricing" className="text-muted-foreground hover:text-foreground transition-colors">
                 Pricing
               </Link>
@@ -130,6 +135,15 @@ export function Header() {
                     <Link href="/dashboard" className="cursor-pointer">User Dashboard</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
+                    <Link href="/workspaces" className="cursor-pointer flex items-center justify-between font-medium text-primary">
+                      <span className="flex items-center gap-2">
+                        <Briefcase className="w-3.5 h-3.5 text-primary" />
+                        <span>Private Workspaces</span>
+                      </span>
+                      <span className="text-[9px] uppercase tracking-wider font-extrabold bg-primary/20 text-primary px-1.5 py-0.5 rounded-full border border-primary/30">Private</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
                     <Link href={`/profile/${user.email.split('@')[0]}`} className="cursor-pointer">Founder Profile</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
@@ -178,6 +192,10 @@ export function Header() {
             </Link>
             <Link href="/community/guidelines" className="block text-sm font-medium hover:text-primary transition-colors">
               Community Guidelines
+            </Link>
+            <Link href="/workspaces" className="block text-sm font-semibold text-primary hover:underline transition-colors flex items-center justify-between">
+              <span>🔒 Private Team Workspaces</span>
+              <span className="text-[10px] bg-primary/20 text-primary px-1.5 py-0.5 rounded-full font-bold">PRO</span>
             </Link>
             <Link href="/pricing" className="block text-sm font-medium hover:text-primary transition-colors">
               Pricing & Plans

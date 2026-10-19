@@ -49,8 +49,15 @@ import {
   ShieldCheck,
   CheckCircle2,
   Clock,
-  Sparkles
+  Sparkles,
+  Briefcase,
+  Lock
 } from 'lucide-react';
+import { Workspace, WorkspaceRole } from '@/lib/workspace-types';
+import { apiListWorkspaces } from '@/lib/workspace-client';
+import { WorkspaceCard } from '@/components/workspaces/workspace-card';
+import { WorkspaceEmptyState } from '@/components/workspaces/workspace-empty-state';
+import { CreateWorkspaceDialog } from '@/components/workspaces/create-workspace-dialog';
 
 function DashboardContent() {
   const { user, isLoading } = useAuth();
@@ -66,6 +73,19 @@ function DashboardContent() {
   const [campaigns, setCampaigns] = useState<ValidationCampaign[]>([]);
   const [workspaceTasks, setWorkspaceTasks] = useState<WorkspaceTask[]>([]);
   const [mentorRequests, setMentorRequests] = useState<MentorSessionRequest[]>([]);
+  const [userWorkspaces, setUserWorkspaces] = useState<Array<Workspace & { userRole: WorkspaceRole; memberCount: number }>>([]);
+  const [createWorkspaceOpen, setCreateWorkspaceOpen] = useState(false);
+
+  const fetchWorkspaces = async () => {
+    if (user) {
+      try {
+        const list = await apiListWorkspaces(user);
+        setUserWorkspaces(list);
+      } catch (e) {
+        console.error('Failed to load workspaces:', e);
+      }
+    }
+  };
 
   useEffect(() => {
     if (!isLoading && !user) {
@@ -95,6 +115,8 @@ function DashboardContent() {
 
       const allMentorReqs = getStoredMentorRequests(user.id);
       setMentorRequests(allMentorReqs);
+
+      fetchWorkspaces();
     }
   }, [user, isLoading, router]);
 
@@ -231,6 +253,7 @@ function DashboardContent() {
         <div className="flex items-center gap-2 border-b border-border overflow-x-auto pb-1 text-xs">
           {[
             { id: 'projects', label: 'My Projects', icon: Layers, badge: myProjects.length },
+            { id: 'workspaces', label: 'Private Workspaces', icon: Briefcase, badge: userWorkspaces.length },
             { id: 'campaigns', label: 'Validation Lab', icon: FlaskConical, badge: campaigns.length },
             { id: 'collaboration', label: 'Collaboration Proposals', icon: Users, badge: pendingCollabs.length },
             { id: 'feedback', label: 'Feedback Stream', icon: Star, badge: feedbackReceived.length },
@@ -322,6 +345,46 @@ function DashboardContent() {
                 </Card>
               ))}
             </div>
+          </div>
+        )}
+
+        {/* TAB: PRIVATE WORKSPACES */}
+        {activeTab === 'workspaces' && (
+          <div className="space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <div className="flex items-center gap-2">
+                  <h2 className="text-base font-bold text-foreground">Private Team Workspaces</h2>
+                  <span className="text-[10px] font-bold bg-primary/20 text-primary px-2 py-0.5 rounded-full border border-primary/30 uppercase">
+                    Confidential
+                  </span>
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Confidential workspaces for your founding team with role-based access control, file encryption, and task tracking.
+                </p>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <Button
+                  onClick={() => setCreateWorkspaceOpen(true)}
+                  size="sm"
+                  className="rounded-xl text-xs font-bold gap-1 shadow-md shadow-primary/20"
+                >
+                  <Plus className="w-3.5 h-3.5" />
+                  <span>Create Workspace</span>
+                </Button>
+              </div>
+            </div>
+
+            {userWorkspaces.length === 0 ? (
+              <WorkspaceEmptyState onCreateClick={() => setCreateWorkspaceOpen(true)} />
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {userWorkspaces.map(ws => (
+                  <WorkspaceCard key={ws.id} workspace={ws} />
+                ))}
+              </div>
+            )}
           </div>
         )}
 
@@ -578,6 +641,15 @@ function DashboardContent() {
           </div>
         )}
       </div>
+
+      <CreateWorkspaceDialog
+        open={createWorkspaceOpen}
+        onOpenChange={setCreateWorkspaceOpen}
+        onSuccess={(id) => {
+          fetchWorkspaces();
+          router.push(`/workspaces/${id}`);
+        }}
+      />
 
       <MobileNav />
     </main>

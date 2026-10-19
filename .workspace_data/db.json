@@ -1,0 +1,1283 @@
+{
+  "workspaces": [
+    {
+      "id": "ws_ideacheck_core",
+      "name": "IdeaCheck Core Founders",
+      "slug": "ideacheck-core-founders",
+      "description": "Private executive workspace for IdeaCheck AI founding team, product roadmap, and seed investor documents.",
+      "logo_path": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=80",
+      "cover_image": "https://images.unsplash.com/photo-1557683316-973673baf926?w=1200&auto=format&fit=crop&q=80",
+      "owner_id": "user_sarah",
+      "visibility": "private",
+      "linked_project_id": "proj_ai_validation_copilot",
+      "linked_project_title": "AI Startup Validation Copilot",
+      "settings": {
+        "allowViewerDownload": true,
+        "allowEditorDownload": true,
+        "defaultRole": "VIEWER",
+        "notifyOnTaskCreated": true,
+        "notifyOnMemberJoin": true
+      },
+      "created_at": "2026-10-17T08:58:48.827Z",
+      "updated_at": "2026-10-19T08:58:48.826Z"
+    },
+    {
+      "id": "ws_stealth_ai_lab",
+      "name": "Stealth AI Security Lab",
+      "slug": "stealth-ai-security-lab",
+      "description": "Confidential security audits, proprietary model weights, and pentest results.",
+      "logo_path": "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=150&auto=format&fit=crop&q=80",
+      "cover_image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&auto=format&fit=crop&q=80",
+      "owner_id": "user_alex",
+      "visibility": "private",
+      "settings": {
+        "allowViewerDownload": false,
+        "allowEditorDownload": true,
+        "defaultRole": "VIEWER",
+        "notifyOnTaskCreated": true,
+        "notifyOnMemberJoin": true
+      },
+      "created_at": "2026-10-18T08:58:48.827Z",
+      "updated_at": "2026-10-19T08:58:48.826Z"
+    },
+    {
+      "id": "ws_39850ec5-84a",
+      "name": "Apollo Stealth Lab",
+      "slug": "apollo-stealth-lab--84a",
+      "description": "Secret aerospace algorithm repository",
+      "logo_path": "https://avatar.vercel.sh/apollo-stealth-lab--84a?s=120",
+      "owner_id": "user_founder_1",
+      "visibility": "private",
+      "linked_project_id": null,
+      "linked_project_title": null,
+      "settings": {
+        "allowViewerDownload": false,
+        "allowEditorDownload": true,
+        "defaultRole": "VIEWER",
+        "notifyOnTaskCreated": true,
+        "notifyOnMemberJoin": true
+      },
+      "created_at": "2026-10-19T08:58:48.831Z",
+      "updated_at": "2026-10-19T08:58:48.831Z"
+    },
+    {
+      "id": "ws_03ac9187-24f",
+      "name": "Confidential Alpha Corp",
+      "slug": "confidential-alpha-corp--24f",
+      "description": "Alpha secrets",
+      "logo_path": "https://avatar.vercel.sh/confidential-alpha-corp--24f?s=120",
+      "owner_id": "user_alpha",
+      "visibility": "private",
+      "linked_project_id": null,
+      "linked_project_title": null,
+      "settings": {
+        "allowViewerDownload": false,
+        "allowEditorDownload": true,
+        "defaultRole": "VIEWER",
+        "notifyOnTaskCreated": true,
+        "notifyOnMemberJoin": true
+      },
+      "created_at": "2026-10-19T08:58:48.833Z",
+      "updated_at": "2026-10-19T08:58:48.833Z"
+    },
+    {
+      "id": "ws_ba23516e-410",
+      "name": "Confidential Beta Corp",
+      "slug": "confidential-beta-corp--410",
+      "description": "Beta secrets",
+      "logo_path": "https://avatar.vercel.sh/confidential-beta-corp--410?s=120",
+      "owner_id": "user_beta",
+      "visibility": "private",
+      "linked_project_id": null,
+      "linked_project_title": null,
+      "settings": {
+        "allowViewerDownload": false,
+        "allowEditorDownload": true,
+        "defaultRole": "VIEWER",
+        "notifyOnTaskCreated": true,
+        "notifyOnMemberJoin": true
+      },
+      "created_at": "2026-10-19T08:58:48.835Z",
+      "updated_at": "2026-10-19T08:58:48.835Z"
+    },
+    {
+      "id": "ws_8a62c11f-417",
+      "name": "Fintech Series A",
+      "slug": "fintech-series-a--417",
+      "description": "Banking partners only",
+      "logo_path": "https://avatar.vercel.sh/fintech-series-a--417?s=120",
+      "owner_id": "user_fintech_lead",
+      "visibility": "private",
+      "linked_project_id": null,
+      "linked_project_title": null,
+      "settings": {
+        "allowViewerDownload": false,
+        "allowEditorDownload": true,
+        "defaultRole": "VIEWER",
+        "notifyOnTaskCreated": true,
+        "notifyOnMemberJoin": true
+      },
+      "created_at": "2026-10-19T08:58:48.837Z",
+      "updated_at": "2026-10-19T08:58:48.837Z"
+    },
+    {
+      "id": "ws_c7be9c96-5fb",
+      "name": "Security Vault",
+      "slug": "security-vault--5fb",
+      "description": "Testing duplicate membership",
+      "logo_path": "https://avatar.vercel.sh/security-vault--5fb?s=120",
+      "owner_id": "user_owner",
+      "visibility": "private",
+      "linked_project_id": null,
+      "linked_project_title": null,
+      "settings": {
+        "allowViewerDownload": false,
+        "allowEditorDownload": true,
+        "defaultRole": "VIEWER",
+        "notifyOnTaskCreated": true,
+        "notifyOnMemberJoin": true
+      },
+      "created_at": "2026-10-19T08:58:48.843Z",
+      "updated_at": "2026-10-19T08:58:48.843Z"
+    },
+    {
+      "id": "ws_d1e1516c-e2f",
+      "name": "Guardian Workspace",
+      "slug": "guardian-workspace--e2f",
+      "description": "Safeguard tests",
+      "logo_path": "https://avatar.vercel.sh/guardian-workspace--e2f?s=120",
+      "owner_id": "user_solo_admin",
+      "visibility": "private",
+      "linked_project_id": null,
+      "linked_project_title": null,
+      "settings": {
+        "allowViewerDownload": false,
+        "allowEditorDownload": true,
+        "defaultRole": "VIEWER",
+        "notifyOnTaskCreated": true,
+        "notifyOnMemberJoin": true
+      },
+      "created_at": "2026-10-19T08:58:48.845Z",
+      "updated_at": "2026-10-19T08:58:48.845Z"
+    },
+    {
+      "id": "ws_d1d9e7ec-0b5",
+      "name": "Doc Repository",
+      "slug": "doc-repository--0b5",
+      "description": "File upload tests",
+      "logo_path": "https://avatar.vercel.sh/doc-repository--0b5?s=120",
+      "owner_id": "user_lead",
+      "visibility": "private",
+      "linked_project_id": null,
+      "linked_project_title": null,
+      "settings": {
+        "allowViewerDownload": false,
+        "allowEditorDownload": true,
+        "defaultRole": "VIEWER",
+        "notifyOnTaskCreated": true,
+        "notifyOnMemberJoin": true
+      },
+      "created_at": "2026-10-19T08:58:48.847Z",
+      "updated_at": "2026-10-19T08:58:48.847Z"
+    },
+    {
+      "id": "ws_f25fcffb-562",
+      "name": "Auditing Firm",
+      "slug": "auditing-firm--562",
+      "description": "Download policy test",
+      "logo_path": "https://avatar.vercel.sh/auditing-firm--562?s=120",
+      "owner_id": "user_senior_admin",
+      "visibility": "private",
+      "linked_project_id": null,
+      "linked_project_title": null,
+      "settings": {
+        "allowViewerDownload": true,
+        "allowEditorDownload": true,
+        "defaultRole": "VIEWER",
+        "notifyOnTaskCreated": true,
+        "notifyOnMemberJoin": true
+      },
+      "created_at": "2026-10-19T08:58:48.850Z",
+      "updated_at": "2026-10-19T08:58:48.856Z"
+    },
+    {
+      "id": "ws_0278c74c-165",
+      "name": "Sprint Team",
+      "slug": "sprint-team--165",
+      "description": "Sprint velocity tests",
+      "logo_path": "https://avatar.vercel.sh/sprint-team--165?s=120",
+      "owner_id": "user_pm",
+      "visibility": "private",
+      "linked_project_id": null,
+      "linked_project_title": null,
+      "settings": {
+        "allowViewerDownload": false,
+        "allowEditorDownload": true,
+        "defaultRole": "VIEWER",
+        "notifyOnTaskCreated": true,
+        "notifyOnMemberJoin": true
+      },
+      "created_at": "2026-10-19T08:58:48.857Z",
+      "updated_at": "2026-10-19T08:58:48.857Z"
+    },
+    {
+      "id": "ws_ebba18a2-3aa",
+      "name": "Venture Studio",
+      "slug": "venture-studio--3aa",
+      "description": "Transfer tests",
+      "logo_path": "https://avatar.vercel.sh/venture-studio--3aa?s=120",
+      "owner_id": "user_successor",
+      "visibility": "private",
+      "linked_project_id": null,
+      "linked_project_title": null,
+      "settings": {
+        "allowViewerDownload": false,
+        "allowEditorDownload": true,
+        "defaultRole": "VIEWER",
+        "notifyOnTaskCreated": true,
+        "notifyOnMemberJoin": true
+      },
+      "created_at": "2026-10-19T08:58:48.864Z",
+      "updated_at": "2026-10-19T08:58:48.871Z"
+    },
+    {
+      "id": "ws_a898293e-7cc",
+      "name": "yuva",
+      "slug": "yuva--7cc",
+      "description": "team work",
+      "logo_path": "https://avatar.vercel.sh/yuva--7cc?s=120",
+      "owner_id": "user_acenv73so",
+      "visibility": "private",
+      "linked_project_id": null,
+      "linked_project_title": null,
+      "settings": {
+        "allowViewerDownload": false,
+        "allowEditorDownload": true,
+        "defaultRole": "VIEWER",
+        "notifyOnTaskCreated": true,
+        "notifyOnMemberJoin": true
+      },
+      "created_at": "2026-10-19T09:02:55.492Z",
+      "updated_at": "2026-10-19T09:02:55.492Z"
+    }
+  ],
+  "members": [
+    {
+      "id": "mem_1",
+      "workspace_id": "ws_ideacheck_core",
+      "user_id": "user_sarah",
+      "role": "ADMIN",
+      "joined_at": "2026-10-17T08:58:48.827Z",
+      "invited_by": "system",
+      "user_name": "Sarah Chen",
+      "user_email": "sarah@ideacheck.ai",
+      "user_avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "mem_2",
+      "workspace_id": "ws_ideacheck_core",
+      "user_id": "user_alex",
+      "role": "EDITOR",
+      "joined_at": "2026-10-18T08:58:48.827Z",
+      "invited_by": "user_sarah",
+      "user_name": "Alex Rivera",
+      "user_email": "alex@ideacheck.ai",
+      "user_avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "mem_3",
+      "workspace_id": "ws_ideacheck_core",
+      "user_id": "user_priya",
+      "role": "VIEWER",
+      "joined_at": "2026-10-18T08:58:48.827Z",
+      "invited_by": "user_sarah",
+      "user_name": "Priya Sharma",
+      "user_email": "priya@ideacheck.ai",
+      "user_avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "mem_4",
+      "workspace_id": "ws_stealth_ai_lab",
+      "user_id": "user_alex",
+      "role": "ADMIN",
+      "joined_at": "2026-10-18T08:58:48.827Z",
+      "invited_by": "system",
+      "user_name": "Alex Rivera",
+      "user_email": "alex@ideacheck.ai",
+      "user_avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "mem_50dceee9-4e8",
+      "workspace_id": "ws_39850ec5-84a",
+      "user_id": "user_founder_1",
+      "role": "ADMIN",
+      "joined_at": "2026-10-19T08:58:48.831Z",
+      "invited_by": "system",
+      "user_name": "Founder One",
+      "user_email": "founder1@apollo.space",
+      "user_avatar": "https://avatar.vercel.sh/founder1@apollo.space?s=96"
+    },
+    {
+      "id": "mem_fa6abd76-564",
+      "workspace_id": "ws_03ac9187-24f",
+      "user_id": "user_alpha",
+      "role": "ADMIN",
+      "joined_at": "2026-10-19T08:58:48.833Z",
+      "invited_by": "system",
+      "user_name": "Alpha Lead",
+      "user_email": "lead@alpha.com",
+      "user_avatar": "https://avatar.vercel.sh/lead@alpha.com?s=96"
+    },
+    {
+      "id": "mem_73aeab4b-496",
+      "workspace_id": "ws_ba23516e-410",
+      "user_id": "user_beta",
+      "role": "ADMIN",
+      "joined_at": "2026-10-19T08:58:48.835Z",
+      "invited_by": "system",
+      "user_name": "Beta Lead",
+      "user_email": "lead@beta.com",
+      "user_avatar": "https://avatar.vercel.sh/lead@beta.com?s=96"
+    },
+    {
+      "id": "mem_41d96267-f3f",
+      "workspace_id": "ws_8a62c11f-417",
+      "user_id": "user_fintech_lead",
+      "role": "ADMIN",
+      "joined_at": "2026-10-19T08:58:48.837Z",
+      "invited_by": "system",
+      "user_name": "Fintech Lead",
+      "user_email": "lead@fintech.io",
+      "user_avatar": "https://avatar.vercel.sh/lead@fintech.io?s=96"
+    },
+    {
+      "id": "mem_28730186-dd2",
+      "workspace_id": "ws_8a62c11f-417",
+      "user_id": "user_advisor",
+      "role": "EDITOR",
+      "joined_at": "2026-10-19T08:58:48.841Z",
+      "invited_by": "user_fintech_lead",
+      "user_name": "Dr. Advisor",
+      "user_email": "advisor@venture.com",
+      "user_avatar": "https://avatar.vercel.sh/advisor@venture.com?s=96"
+    },
+    {
+      "id": "mem_30f2479a-5c4",
+      "workspace_id": "ws_c7be9c96-5fb",
+      "user_id": "user_owner",
+      "role": "ADMIN",
+      "joined_at": "2026-10-19T08:58:48.843Z",
+      "invited_by": "system",
+      "user_name": "Owner",
+      "user_email": "owner@vault.io",
+      "user_avatar": "https://avatar.vercel.sh/owner@vault.io?s=96"
+    },
+    {
+      "id": "mem_20ae7894-140",
+      "workspace_id": "ws_d1e1516c-e2f",
+      "user_id": "user_solo_admin",
+      "role": "ADMIN",
+      "joined_at": "2026-10-19T08:58:48.845Z",
+      "invited_by": "system",
+      "user_name": "Solo Admin",
+      "user_email": "solo@guardian.io",
+      "user_avatar": "https://avatar.vercel.sh/solo@guardian.io?s=96"
+    },
+    {
+      "id": "mem_23007c9f-dfb",
+      "workspace_id": "ws_d1d9e7ec-0b5",
+      "user_id": "user_lead",
+      "role": "ADMIN",
+      "joined_at": "2026-10-19T08:58:48.847Z",
+      "invited_by": "system",
+      "user_name": "Lead",
+      "user_email": "lead@doc.io",
+      "user_avatar": "https://avatar.vercel.sh/lead@doc.io?s=96"
+    },
+    {
+      "id": "mem_0d3514d6-635",
+      "workspace_id": "ws_f25fcffb-562",
+      "user_id": "user_senior_admin",
+      "role": "ADMIN",
+      "joined_at": "2026-10-19T08:58:48.850Z",
+      "invited_by": "system",
+      "user_name": "Senior Partner",
+      "user_email": "senior@audit.com",
+      "user_avatar": "https://avatar.vercel.sh/senior@audit.com?s=96"
+    },
+    {
+      "id": "mem_7792c3b7-d36",
+      "workspace_id": "ws_f25fcffb-562",
+      "user_id": "user_intern",
+      "role": "VIEWER",
+      "joined_at": "2026-10-19T08:58:48.853Z",
+      "invited_by": "user_senior_admin",
+      "user_name": "Intern",
+      "user_email": "intern@audit.com",
+      "user_avatar": "https://avatar.vercel.sh/intern@audit.com?s=96"
+    },
+    {
+      "id": "mem_9f3499f0-c26",
+      "workspace_id": "ws_0278c74c-165",
+      "user_id": "user_pm",
+      "role": "ADMIN",
+      "joined_at": "2026-10-19T08:58:48.857Z",
+      "invited_by": "system",
+      "user_name": "Product Manager",
+      "user_email": "pm@sprint.io",
+      "user_avatar": "https://avatar.vercel.sh/pm@sprint.io?s=96"
+    },
+    {
+      "id": "mem_52f47439-431",
+      "workspace_id": "ws_ebba18a2-3aa",
+      "user_id": "user_founder_orig",
+      "role": "ADMIN",
+      "joined_at": "2026-10-19T08:58:48.864Z",
+      "invited_by": "system",
+      "user_name": "Original Founder",
+      "user_email": "orig@studio.io",
+      "user_avatar": "https://avatar.vercel.sh/orig@studio.io?s=96"
+    },
+    {
+      "id": "mem_55bc9124-f44",
+      "workspace_id": "ws_ebba18a2-3aa",
+      "user_id": "user_successor",
+      "role": "ADMIN",
+      "joined_at": "2026-10-19T08:58:48.870Z",
+      "invited_by": "user_founder_orig",
+      "user_name": "Successor",
+      "user_email": "successor@studio.io",
+      "user_avatar": "https://avatar.vercel.sh/successor@studio.io?s=96"
+    },
+    {
+      "id": "mem_2b3fee49-4db",
+      "workspace_id": "ws_a898293e-7cc",
+      "user_id": "user_acenv73so",
+      "role": "ADMIN",
+      "joined_at": "2026-10-19T09:02:55.492Z",
+      "invited_by": "system",
+      "user_name": "fsdgfh",
+      "user_email": "yuvasankarreddykuppam@gmail.com",
+      "user_avatar": "https://avatar.vercel.sh/yuvasankarreddykuppam@gmail.com?s=96"
+    }
+  ],
+  "invitations": [
+    {
+      "id": "inv_1",
+      "workspace_id": "ws_ideacheck_core",
+      "email": "partner@sequoia-demo.vc",
+      "role": "VIEWER",
+      "token_hash": "838d72aa8a0c07071c5ca7344c407f4b3e61d9903bd6815d2feedd9ffc643165",
+      "token": "inv_demo_token_sequoia",
+      "invited_by": "user_sarah",
+      "invited_by_name": "Sarah Chen",
+      "expires_at": "2026-10-26T08:58:48.828Z",
+      "created_at": "2026-10-19T08:58:48.826Z",
+      "status": "pending"
+    },
+    {
+      "id": "inv_cd56fac5-335",
+      "workspace_id": "ws_8a62c11f-417",
+      "email": "advisor@venture.com",
+      "role": "EDITOR",
+      "token_hash": "6ab293ed496e4a559d71e67017a48a913bc4a5248b10ed86b7f99c8b963f2686",
+      "token": "2efd0ceac3f5efdc8c8326214628d32b0a24808e15147a47",
+      "invited_by": "user_fintech_lead",
+      "invited_by_name": "Fintech Lead",
+      "expires_at": "2026-10-26T08:58:48.839Z",
+      "status": "accepted",
+      "created_at": "2026-10-19T08:58:48.839Z",
+      "accepted_at": "2026-10-19T08:58:48.841Z"
+    },
+    {
+      "id": "inv_2cb957ed-c3d",
+      "workspace_id": "ws_f25fcffb-562",
+      "email": "intern@audit.com",
+      "role": "VIEWER",
+      "token_hash": "9affbc9cb3e864f5609b1c16d76bb316272e48a18f4e8066f1370a23a313291c",
+      "token": "18d8a5a153509970400b0cb982a7ce5d8212802eecf8cf7d",
+      "invited_by": "user_senior_admin",
+      "invited_by_name": "Senior Partner",
+      "expires_at": "2026-10-26T08:58:48.852Z",
+      "status": "accepted",
+      "created_at": "2026-10-19T08:58:48.852Z",
+      "accepted_at": "2026-10-19T08:58:48.853Z"
+    },
+    {
+      "id": "inv_6665e337-835",
+      "workspace_id": "ws_ebba18a2-3aa",
+      "email": "successor@studio.io",
+      "role": "ADMIN",
+      "token_hash": "64079faa4adb3e51852b25c18261040157ffe243c11742b15a9ac538b347df88",
+      "token": "e7ba1d6c7228ca91e221953a9649d809c7e5d92f4a6b6040",
+      "invited_by": "user_founder_orig",
+      "invited_by_name": "Original Founder",
+      "expires_at": "2026-10-26T08:58:48.865Z",
+      "status": "accepted",
+      "created_at": "2026-10-19T08:58:48.865Z",
+      "accepted_at": "2026-10-19T08:58:48.870Z"
+    }
+  ],
+  "folders": [
+    {
+      "id": "fold_pitch",
+      "workspace_id": "ws_ideacheck_core",
+      "parent_folder_id": null,
+      "name": "Investor Materials & Pitch Decks",
+      "created_by": "user_sarah",
+      "created_by_name": "Sarah Chen",
+      "created_at": "2026-10-17T08:58:48.827Z",
+      "updated_at": "2026-10-17T08:58:48.827Z"
+    },
+    {
+      "id": "fold_financials",
+      "workspace_id": "ws_ideacheck_core",
+      "parent_folder_id": null,
+      "name": "Financial Projections & Term Sheets",
+      "created_by": "user_sarah",
+      "created_by_name": "Sarah Chen",
+      "created_at": "2026-10-18T08:58:48.827Z",
+      "updated_at": "2026-10-18T08:58:48.827Z"
+    },
+    {
+      "id": "fold_sub_audits",
+      "workspace_id": "ws_ideacheck_core",
+      "parent_folder_id": "fold_financials",
+      "name": "Q3 Certified Audit Reports",
+      "created_by": "user_alex",
+      "created_by_name": "Alex Rivera",
+      "created_at": "2026-10-18T08:58:48.827Z",
+      "updated_at": "2026-10-18T08:58:48.827Z"
+    }
+  ],
+  "files": [
+    {
+      "id": "file_deck_2026",
+      "workspace_id": "ws_ideacheck_core",
+      "folder_id": "fold_pitch",
+      "storage_key": "workspaces/ws_ideacheck_core/files/seed_deck_series_a_confidential.pdf",
+      "original_filename": "IdeaCheck_AI_Seed_Pitch_Deck_Confidential.pdf",
+      "content_type": "application/pdf",
+      "file_size": 4892010,
+      "description": "Series Seed investor deck with traction, unit economics, and 18-month expansion model.",
+      "uploaded_by": "user_sarah",
+      "uploaded_by_name": "Sarah Chen",
+      "created_at": "2026-10-17T08:58:48.827Z",
+      "updated_at": "2026-10-17T08:58:48.827Z"
+    },
+    {
+      "id": "file_cap_table",
+      "workspace_id": "ws_ideacheck_core",
+      "folder_id": "fold_financials",
+      "storage_key": "workspaces/ws_ideacheck_core/files/cap_table_proforma.xlsx",
+      "original_filename": "IdeaCheck_CapTable_ProForma_2026.xlsx",
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "file_size": 1245000,
+      "description": "Full equity waterfall, option pool reserve, and investor SAFEs.",
+      "uploaded_by": "user_sarah",
+      "uploaded_by_name": "Sarah Chen",
+      "created_at": "2026-10-18T08:58:48.827Z",
+      "updated_at": "2026-10-18T08:58:48.827Z"
+    },
+    {
+      "id": "file_architecture",
+      "workspace_id": "ws_ideacheck_core",
+      "folder_id": null,
+      "storage_key": "workspaces/ws_ideacheck_core/files/ai_pipeline_architecture.png",
+      "original_filename": "Architecture_MultiAgent_Workflow.png",
+      "content_type": "image/png",
+      "file_size": 854000,
+      "description": "System diagram for private multi-model validation pipeline.",
+      "uploaded_by": "user_alex",
+      "uploaded_by_name": "Alex Rivera",
+      "created_at": "2026-10-18T08:58:48.827Z",
+      "updated_at": "2026-10-18T08:58:48.827Z"
+    },
+    {
+      "id": "file_c04f4945-5be",
+      "workspace_id": "ws_d1d9e7ec-0b5",
+      "folder_id": null,
+      "storage_key": "workspaces/ws_d1d9e7ec-0b5/files/3e7baa106f330a72_Seed_Deck_v3.pdf",
+      "original_filename": "Seed_Deck_v3.pdf",
+      "content_type": "application/pdf",
+      "file_size": 512000,
+      "description": "Initial seed pitch deck for angels",
+      "uploaded_by": "user_lead",
+      "uploaded_by_name": "Lead",
+      "created_at": "2026-10-19T08:58:48.848Z",
+      "updated_at": "2026-10-19T08:58:48.848Z"
+    },
+    {
+      "id": "file_0517fc4e-6d6",
+      "workspace_id": "ws_f25fcffb-562",
+      "folder_id": null,
+      "storage_key": "workspaces/ws_f25fcffb-562/files/f0f5053d15e87dc7_Audit_Finding.xlsx",
+      "original_filename": "Audit_Finding.xlsx",
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "file_size": 204800,
+      "description": "",
+      "uploaded_by": "user_senior_admin",
+      "uploaded_by_name": "Senior Partner",
+      "created_at": "2026-10-19T08:58:48.854Z",
+      "updated_at": "2026-10-19T08:58:48.854Z"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task_1",
+      "workspace_id": "ws_ideacheck_core",
+      "title": "Review series seed lead investor term sheet",
+      "description": "Finalize liquidation preference and board seat requirements before signing.",
+      "status": "in_progress",
+      "priority": "urgent",
+      "assigned_to": "user_sarah",
+      "assigned_to_name": "Sarah Chen",
+      "assigned_to_avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+      "created_by": "user_sarah",
+      "created_by_name": "Sarah Chen",
+      "due_date": "2026-10-21T08:58:48.828Z",
+      "created_at": "2026-10-18T08:58:48.827Z",
+      "updated_at": "2026-10-19T08:58:48.826Z"
+    },
+    {
+      "id": "task_2",
+      "workspace_id": "ws_ideacheck_core",
+      "title": "Complete SOC2 Type II audit readiness questionnaire",
+      "description": "Ensure data encryption at rest and audit logging meet compliance standards.",
+      "status": "todo",
+      "priority": "high",
+      "assigned_to": "user_alex",
+      "assigned_to_name": "Alex Rivera",
+      "assigned_to_avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+      "created_by": "user_sarah",
+      "created_by_name": "Sarah Chen",
+      "due_date": "2026-10-24T08:58:48.828Z",
+      "created_at": "2026-10-18T08:58:48.827Z",
+      "updated_at": "2026-10-18T08:58:48.827Z"
+    },
+    {
+      "id": "task_3",
+      "workspace_id": "ws_ideacheck_core",
+      "title": "Validate UX wireframes for enterprise team spaces",
+      "description": "Verify role-based access controls and confidential download toggles.",
+      "status": "in_review",
+      "priority": "medium",
+      "assigned_to": "user_priya",
+      "assigned_to_name": "Priya Sharma",
+      "assigned_to_avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
+      "created_by": "user_alex",
+      "created_by_name": "Alex Rivera",
+      "due_date": "2026-10-22T08:58:48.828Z",
+      "created_at": "2026-10-17T08:58:48.827Z",
+      "updated_at": "2026-10-18T08:58:48.827Z"
+    },
+    {
+      "id": "task_4",
+      "workspace_id": "ws_ideacheck_core",
+      "title": "Draft proprietary prompt engineering IP defense patent",
+      "description": "File provisional patent application with legal counsel.",
+      "status": "completed",
+      "priority": "high",
+      "assigned_to": "user_sarah",
+      "assigned_to_name": "Sarah Chen",
+      "assigned_to_avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+      "created_by": "user_sarah",
+      "created_by_name": "Sarah Chen",
+      "due_date": "2026-10-18T08:58:48.827Z",
+      "created_at": "2026-10-17T08:58:48.827Z",
+      "updated_at": "2026-10-18T08:58:48.827Z"
+    },
+    {
+      "id": "task_8f17c77e-9be",
+      "workspace_id": "ws_0278c74c-165",
+      "title": "Design high-converting pricing table",
+      "description": "Implement annual vs monthly toggle and credit card checkout",
+      "status": "in_progress",
+      "priority": "high",
+      "assigned_to": null,
+      "created_by": "user_pm",
+      "created_by_name": "Product Manager",
+      "due_date": null,
+      "created_at": "2026-10-19T08:58:48.859Z",
+      "updated_at": "2026-10-19T08:58:48.860Z"
+    }
+  ],
+  "comments": [
+    {
+      "id": "comm_1",
+      "workspace_id": "ws_ideacheck_core",
+      "task_id": "task_1",
+      "file_id": null,
+      "author_id": "user_alex",
+      "author_name": "Alex Rivera",
+      "author_avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+      "content": "I checked clause 4.2 with our venture attorney; 1x non-participating preferred is standard and safe.",
+      "created_at": "2026-10-18T08:58:48.827Z",
+      "updated_at": "2026-10-18T08:58:48.827Z"
+    },
+    {
+      "id": "comm_2",
+      "workspace_id": "ws_ideacheck_core",
+      "task_id": null,
+      "file_id": "file_deck_2026",
+      "author_id": "user_sarah",
+      "author_name": "Sarah Chen",
+      "author_avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+      "content": "Please double-check slide 9 for our updated CAC and LTV projections before sharing externally.",
+      "created_at": "2026-10-18T08:58:48.827Z",
+      "updated_at": "2026-10-18T08:58:48.827Z"
+    },
+    {
+      "id": "comm_fa2f2ba3-21a",
+      "workspace_id": "ws_0278c74c-165",
+      "task_id": "task_8f17c77e-9be",
+      "file_id": null,
+      "author_id": "user_pm",
+      "author_name": "Product Manager",
+      "author_avatar": "https://avatar.vercel.sh/pm@sprint.io?s=96",
+      "content": "Figma mockups have been approved by design lead.",
+      "created_at": "2026-10-19T08:58:48.862Z",
+      "updated_at": "2026-10-19T08:58:48.862Z"
+    }
+  ],
+  "announcements": [
+    {
+      "id": "ann_1",
+      "workspace_id": "ws_ideacheck_core",
+      "author_id": "user_sarah",
+      "author_name": "Sarah Chen",
+      "author_avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+      "title": "🔒 Confidentiality Notice: Term Sheet Inbound",
+      "content": "Team, please keep all discussions in this private workspace. Do not export cap table or financial models to public or unencrypted channels.",
+      "pinned": true,
+      "created_at": "2026-10-17T08:58:48.827Z",
+      "updated_at": "2026-10-17T08:58:48.827Z"
+    },
+    {
+      "id": "ann_8e1bcf6f-9f5",
+      "workspace_id": "ws_39850ec5-84a",
+      "author_id": "user_founder_1",
+      "author_name": "Founder One",
+      "author_avatar": "https://avatar.vercel.sh/founder1@apollo.space?s=96",
+      "title": "👋 Welcome to your Private Workspace",
+      "content": "This workspace is confidential and private by default. Only invited teammates with verified credentials can access files, tasks, and discussions.",
+      "pinned": true,
+      "created_at": "2026-10-19T08:58:48.831Z",
+      "updated_at": "2026-10-19T08:58:48.831Z"
+    },
+    {
+      "id": "ann_ef8788bf-052",
+      "workspace_id": "ws_03ac9187-24f",
+      "author_id": "user_alpha",
+      "author_name": "Alpha Lead",
+      "author_avatar": "https://avatar.vercel.sh/lead@alpha.com?s=96",
+      "title": "👋 Welcome to your Private Workspace",
+      "content": "This workspace is confidential and private by default. Only invited teammates with verified credentials can access files, tasks, and discussions.",
+      "pinned": true,
+      "created_at": "2026-10-19T08:58:48.833Z",
+      "updated_at": "2026-10-19T08:58:48.833Z"
+    },
+    {
+      "id": "ann_f1659d4a-0c1",
+      "workspace_id": "ws_ba23516e-410",
+      "author_id": "user_beta",
+      "author_name": "Beta Lead",
+      "author_avatar": "https://avatar.vercel.sh/lead@beta.com?s=96",
+      "title": "👋 Welcome to your Private Workspace",
+      "content": "This workspace is confidential and private by default. Only invited teammates with verified credentials can access files, tasks, and discussions.",
+      "pinned": true,
+      "created_at": "2026-10-19T08:58:48.835Z",
+      "updated_at": "2026-10-19T08:58:48.835Z"
+    },
+    {
+      "id": "ann_ac04e74e-dcf",
+      "workspace_id": "ws_8a62c11f-417",
+      "author_id": "user_fintech_lead",
+      "author_name": "Fintech Lead",
+      "author_avatar": "https://avatar.vercel.sh/lead@fintech.io?s=96",
+      "title": "👋 Welcome to your Private Workspace",
+      "content": "This workspace is confidential and private by default. Only invited teammates with verified credentials can access files, tasks, and discussions.",
+      "pinned": true,
+      "created_at": "2026-10-19T08:58:48.837Z",
+      "updated_at": "2026-10-19T08:58:48.837Z"
+    },
+    {
+      "id": "ann_009a4fdd-470",
+      "workspace_id": "ws_c7be9c96-5fb",
+      "author_id": "user_owner",
+      "author_name": "Owner",
+      "author_avatar": "https://avatar.vercel.sh/owner@vault.io?s=96",
+      "title": "👋 Welcome to your Private Workspace",
+      "content": "This workspace is confidential and private by default. Only invited teammates with verified credentials can access files, tasks, and discussions.",
+      "pinned": true,
+      "created_at": "2026-10-19T08:58:48.843Z",
+      "updated_at": "2026-10-19T08:58:48.843Z"
+    },
+    {
+      "id": "ann_d2a06b29-566",
+      "workspace_id": "ws_d1e1516c-e2f",
+      "author_id": "user_solo_admin",
+      "author_name": "Solo Admin",
+      "author_avatar": "https://avatar.vercel.sh/solo@guardian.io?s=96",
+      "title": "👋 Welcome to your Private Workspace",
+      "content": "This workspace is confidential and private by default. Only invited teammates with verified credentials can access files, tasks, and discussions.",
+      "pinned": true,
+      "created_at": "2026-10-19T08:58:48.845Z",
+      "updated_at": "2026-10-19T08:58:48.845Z"
+    },
+    {
+      "id": "ann_49f0341b-871",
+      "workspace_id": "ws_d1d9e7ec-0b5",
+      "author_id": "user_lead",
+      "author_name": "Lead",
+      "author_avatar": "https://avatar.vercel.sh/lead@doc.io?s=96",
+      "title": "👋 Welcome to your Private Workspace",
+      "content": "This workspace is confidential and private by default. Only invited teammates with verified credentials can access files, tasks, and discussions.",
+      "pinned": true,
+      "created_at": "2026-10-19T08:58:48.847Z",
+      "updated_at": "2026-10-19T08:58:48.847Z"
+    },
+    {
+      "id": "ann_5812cd01-6cd",
+      "workspace_id": "ws_f25fcffb-562",
+      "author_id": "user_senior_admin",
+      "author_name": "Senior Partner",
+      "author_avatar": "https://avatar.vercel.sh/senior@audit.com?s=96",
+      "title": "👋 Welcome to your Private Workspace",
+      "content": "This workspace is confidential and private by default. Only invited teammates with verified credentials can access files, tasks, and discussions.",
+      "pinned": true,
+      "created_at": "2026-10-19T08:58:48.850Z",
+      "updated_at": "2026-10-19T08:58:48.850Z"
+    },
+    {
+      "id": "ann_7d3efcc5-372",
+      "workspace_id": "ws_0278c74c-165",
+      "author_id": "user_pm",
+      "author_name": "Product Manager",
+      "author_avatar": "https://avatar.vercel.sh/pm@sprint.io?s=96",
+      "title": "👋 Welcome to your Private Workspace",
+      "content": "This workspace is confidential and private by default. Only invited teammates with verified credentials can access files, tasks, and discussions.",
+      "pinned": true,
+      "created_at": "2026-10-19T08:58:48.857Z",
+      "updated_at": "2026-10-19T08:58:48.857Z"
+    },
+    {
+      "id": "ann_c7d22972-90f",
+      "workspace_id": "ws_ebba18a2-3aa",
+      "author_id": "user_founder_orig",
+      "author_name": "Original Founder",
+      "author_avatar": "https://avatar.vercel.sh/orig@studio.io?s=96",
+      "title": "👋 Welcome to your Private Workspace",
+      "content": "This workspace is confidential and private by default. Only invited teammates with verified credentials can access files, tasks, and discussions.",
+      "pinned": true,
+      "created_at": "2026-10-19T08:58:48.864Z",
+      "updated_at": "2026-10-19T08:58:48.864Z"
+    },
+    {
+      "id": "ann_c069237a-a3b",
+      "workspace_id": "ws_a898293e-7cc",
+      "author_id": "user_acenv73so",
+      "author_name": "fsdgfh",
+      "author_avatar": "https://avatar.vercel.sh/yuvasankarreddykuppam@gmail.com?s=96",
+      "title": "👋 Welcome to your Private Workspace",
+      "content": "This workspace is confidential and private by default. Only invited teammates with verified credentials can access files, tasks, and discussions.",
+      "pinned": true,
+      "created_at": "2026-10-19T09:02:55.492Z",
+      "updated_at": "2026-10-19T09:02:55.492Z"
+    }
+  ],
+  "activities": [
+    {
+      "id": "act_1",
+      "workspace_id": "ws_ideacheck_core",
+      "actor_id": "user_sarah",
+      "actor_name": "Sarah Chen",
+      "actor_avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+      "action": "workspace_created",
+      "resource_type": "workspace",
+      "resource_id": "ws_ideacheck_core",
+      "metadata": {
+        "name": "IdeaCheck Core Founders"
+      },
+      "created_at": "2026-10-17T08:58:48.827Z"
+    },
+    {
+      "id": "act_2",
+      "workspace_id": "ws_ideacheck_core",
+      "actor_id": "user_sarah",
+      "actor_name": "Sarah Chen",
+      "actor_avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+      "action": "file_uploaded",
+      "resource_type": "file",
+      "resource_id": "file_deck_2026",
+      "metadata": {
+        "filename": "IdeaCheck_AI_Seed_Pitch_Deck_Confidential.pdf"
+      },
+      "created_at": "2026-10-17T08:58:48.827Z"
+    },
+    {
+      "id": "act_3",
+      "workspace_id": "ws_ideacheck_core",
+      "actor_id": "user_sarah",
+      "actor_name": "Sarah Chen",
+      "actor_avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+      "action": "member_invited",
+      "resource_type": "member",
+      "resource_id": "mem_2",
+      "metadata": {
+        "name": "Alex Rivera",
+        "role": "EDITOR"
+      },
+      "created_at": "2026-10-18T08:58:48.827Z"
+    },
+    {
+      "id": "act_4",
+      "workspace_id": "ws_ideacheck_core",
+      "actor_id": "user_sarah",
+      "actor_name": "Sarah Chen",
+      "actor_avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+      "action": "announcement_published",
+      "resource_type": "announcement",
+      "resource_id": "ann_1",
+      "metadata": {
+        "title": "🔒 Confidentiality Notice: Term Sheet Inbound"
+      },
+      "created_at": "2026-10-17T08:58:48.827Z"
+    },
+    {
+      "id": "act_1d4d9b99-492",
+      "workspace_id": "ws_39850ec5-84a",
+      "actor_id": "user_founder_1",
+      "actor_name": "Founder One",
+      "actor_avatar": "https://avatar.vercel.sh/founder1@apollo.space?s=96",
+      "action": "workspace_created",
+      "resource_type": "workspace",
+      "resource_id": "ws_39850ec5-84a",
+      "metadata": {
+        "name": "Apollo Stealth Lab"
+      },
+      "created_at": "2026-10-19T08:58:48.831Z"
+    },
+    {
+      "id": "act_3d2f3671-c29",
+      "workspace_id": "ws_03ac9187-24f",
+      "actor_id": "user_alpha",
+      "actor_name": "Alpha Lead",
+      "actor_avatar": "https://avatar.vercel.sh/lead@alpha.com?s=96",
+      "action": "workspace_created",
+      "resource_type": "workspace",
+      "resource_id": "ws_03ac9187-24f",
+      "metadata": {
+        "name": "Confidential Alpha Corp"
+      },
+      "created_at": "2026-10-19T08:58:48.833Z"
+    },
+    {
+      "id": "act_541f5ff7-e26",
+      "workspace_id": "ws_ba23516e-410",
+      "actor_id": "user_beta",
+      "actor_name": "Beta Lead",
+      "actor_avatar": "https://avatar.vercel.sh/lead@beta.com?s=96",
+      "action": "workspace_created",
+      "resource_type": "workspace",
+      "resource_id": "ws_ba23516e-410",
+      "metadata": {
+        "name": "Confidential Beta Corp"
+      },
+      "created_at": "2026-10-19T08:58:48.835Z"
+    },
+    {
+      "id": "act_3d23d8d4-c0d",
+      "workspace_id": "ws_8a62c11f-417",
+      "actor_id": "user_fintech_lead",
+      "actor_name": "Fintech Lead",
+      "actor_avatar": "https://avatar.vercel.sh/lead@fintech.io?s=96",
+      "action": "workspace_created",
+      "resource_type": "workspace",
+      "resource_id": "ws_8a62c11f-417",
+      "metadata": {
+        "name": "Fintech Series A"
+      },
+      "created_at": "2026-10-19T08:58:48.837Z"
+    },
+    {
+      "id": "act_484c5ec6-dc6",
+      "workspace_id": "ws_8a62c11f-417",
+      "actor_id": "user_fintech_lead",
+      "actor_name": "Fintech Lead",
+      "action": "member_invited",
+      "resource_type": "invitation",
+      "resource_id": "inv_cd56fac5-335",
+      "metadata": {
+        "email": "advisor@venture.com",
+        "role": "EDITOR"
+      },
+      "created_at": "2026-10-19T08:58:48.839Z"
+    },
+    {
+      "id": "act_03b28a0a-484",
+      "workspace_id": "ws_8a62c11f-417",
+      "actor_id": "user_advisor",
+      "actor_name": "Dr. Advisor",
+      "actor_avatar": "https://avatar.vercel.sh/advisor@venture.com?s=96",
+      "action": "invitation_accepted",
+      "resource_type": "member",
+      "resource_id": "mem_28730186-dd2",
+      "metadata": {
+        "role": "EDITOR",
+        "email": "advisor@venture.com"
+      },
+      "created_at": "2026-10-19T08:58:48.841Z"
+    },
+    {
+      "id": "act_fd58436b-a84",
+      "workspace_id": "ws_c7be9c96-5fb",
+      "actor_id": "user_owner",
+      "actor_name": "Owner",
+      "actor_avatar": "https://avatar.vercel.sh/owner@vault.io?s=96",
+      "action": "workspace_created",
+      "resource_type": "workspace",
+      "resource_id": "ws_c7be9c96-5fb",
+      "metadata": {
+        "name": "Security Vault"
+      },
+      "created_at": "2026-10-19T08:58:48.843Z"
+    },
+    {
+      "id": "act_05250232-cf5",
+      "workspace_id": "ws_d1e1516c-e2f",
+      "actor_id": "user_solo_admin",
+      "actor_name": "Solo Admin",
+      "actor_avatar": "https://avatar.vercel.sh/solo@guardian.io?s=96",
+      "action": "workspace_created",
+      "resource_type": "workspace",
+      "resource_id": "ws_d1e1516c-e2f",
+      "metadata": {
+        "name": "Guardian Workspace"
+      },
+      "created_at": "2026-10-19T08:58:48.845Z"
+    },
+    {
+      "id": "act_a2ea66af-575",
+      "workspace_id": "ws_d1d9e7ec-0b5",
+      "actor_id": "user_lead",
+      "actor_name": "Lead",
+      "actor_avatar": "https://avatar.vercel.sh/lead@doc.io?s=96",
+      "action": "workspace_created",
+      "resource_type": "workspace",
+      "resource_id": "ws_d1d9e7ec-0b5",
+      "metadata": {
+        "name": "Doc Repository"
+      },
+      "created_at": "2026-10-19T08:58:48.847Z"
+    },
+    {
+      "id": "act_f7841546-ff1",
+      "workspace_id": "ws_d1d9e7ec-0b5",
+      "actor_id": "user_lead",
+      "actor_name": "Lead",
+      "action": "file_uploaded",
+      "resource_type": "file",
+      "resource_id": "file_c04f4945-5be",
+      "metadata": {
+        "filename": "Seed_Deck_v3.pdf",
+        "size": 512000
+      },
+      "created_at": "2026-10-19T08:58:48.848Z"
+    },
+    {
+      "id": "act_f765a557-7c1",
+      "workspace_id": "ws_f25fcffb-562",
+      "actor_id": "user_senior_admin",
+      "actor_name": "Senior Partner",
+      "actor_avatar": "https://avatar.vercel.sh/senior@audit.com?s=96",
+      "action": "workspace_created",
+      "resource_type": "workspace",
+      "resource_id": "ws_f25fcffb-562",
+      "metadata": {
+        "name": "Auditing Firm"
+      },
+      "created_at": "2026-10-19T08:58:48.850Z"
+    },
+    {
+      "id": "act_01fb005b-4de",
+      "workspace_id": "ws_f25fcffb-562",
+      "actor_id": "user_senior_admin",
+      "actor_name": "Senior Partner",
+      "action": "member_invited",
+      "resource_type": "invitation",
+      "resource_id": "inv_2cb957ed-c3d",
+      "metadata": {
+        "email": "intern@audit.com",
+        "role": "VIEWER"
+      },
+      "created_at": "2026-10-19T08:58:48.852Z"
+    },
+    {
+      "id": "act_d6d72661-01e",
+      "workspace_id": "ws_f25fcffb-562",
+      "actor_id": "user_intern",
+      "actor_name": "Intern",
+      "actor_avatar": "https://avatar.vercel.sh/intern@audit.com?s=96",
+      "action": "invitation_accepted",
+      "resource_type": "member",
+      "resource_id": "mem_7792c3b7-d36",
+      "metadata": {
+        "role": "VIEWER",
+        "email": "intern@audit.com"
+      },
+      "created_at": "2026-10-19T08:58:48.853Z"
+    },
+    {
+      "id": "act_c4a4a219-753",
+      "workspace_id": "ws_f25fcffb-562",
+      "actor_id": "user_senior_admin",
+      "actor_name": "Senior Partner",
+      "action": "file_uploaded",
+      "resource_type": "file",
+      "resource_id": "file_0517fc4e-6d6",
+      "metadata": {
+        "filename": "Audit_Finding.xlsx",
+        "size": 204800
+      },
+      "created_at": "2026-10-19T08:58:48.854Z"
+    },
+    {
+      "id": "act_8610f106-6de",
+      "workspace_id": "ws_f25fcffb-562",
+      "actor_id": "user_senior_admin",
+      "actor_name": "Senior Partner",
+      "actor_avatar": "https://avatar.vercel.sh/senior@audit.com?s=96",
+      "action": "workspace_updated",
+      "resource_type": "settings",
+      "resource_id": "ws_f25fcffb-562",
+      "created_at": "2026-10-19T08:58:48.856Z"
+    },
+    {
+      "id": "act_5df3380f-a8c",
+      "workspace_id": "ws_0278c74c-165",
+      "actor_id": "user_pm",
+      "actor_name": "Product Manager",
+      "actor_avatar": "https://avatar.vercel.sh/pm@sprint.io?s=96",
+      "action": "workspace_created",
+      "resource_type": "workspace",
+      "resource_id": "ws_0278c74c-165",
+      "metadata": {
+        "name": "Sprint Team"
+      },
+      "created_at": "2026-10-19T08:58:48.857Z"
+    },
+    {
+      "id": "act_0c1c8a79-741",
+      "workspace_id": "ws_0278c74c-165",
+      "actor_id": "user_pm",
+      "actor_name": "Product Manager",
+      "action": "task_created",
+      "resource_type": "task",
+      "resource_id": "task_8f17c77e-9be",
+      "metadata": {
+        "title": "Design high-converting pricing table",
+        "priority": "high"
+      },
+      "created_at": "2026-10-19T08:58:48.859Z"
+    },
+    {
+      "id": "act_0d019db2-bce",
+      "workspace_id": "ws_0278c74c-165",
+      "actor_id": "user_pm",
+      "actor_name": "Product Manager",
+      "action": "task_status_changed",
+      "resource_type": "task",
+      "resource_id": "task_8f17c77e-9be",
+      "metadata": {
+        "title": "Design high-converting pricing table",
+        "status": "in_progress"
+      },
+      "created_at": "2026-10-19T08:58:48.860Z"
+    },
+    {
+      "id": "act_0a4bc911-971",
+      "workspace_id": "ws_0278c74c-165",
+      "actor_id": "user_pm",
+      "actor_name": "Product Manager",
+      "action": "comment_added",
+      "resource_type": "comment",
+      "resource_id": "comm_fa2f2ba3-21a",
+      "metadata": {
+        "target": "task"
+      },
+      "created_at": "2026-10-19T08:58:48.862Z"
+    },
+    {
+      "id": "act_088c600a-68c",
+      "workspace_id": "ws_ebba18a2-3aa",
+      "actor_id": "user_founder_orig",
+      "actor_name": "Original Founder",
+      "actor_avatar": "https://avatar.vercel.sh/orig@studio.io?s=96",
+      "action": "workspace_created",
+      "resource_type": "workspace",
+      "resource_id": "ws_ebba18a2-3aa",
+      "metadata": {
+        "name": "Venture Studio"
+      },
+      "created_at": "2026-10-19T08:58:48.864Z"
+    },
+    {
+      "id": "act_e079b36f-1e9",
+      "workspace_id": "ws_ebba18a2-3aa",
+      "actor_id": "user_founder_orig",
+      "actor_name": "Original Founder",
+      "action": "member_invited",
+      "resource_type": "invitation",
+      "resource_id": "inv_6665e337-835",
+      "metadata": {
+        "email": "successor@studio.io",
+        "role": "ADMIN"
+      },
+      "created_at": "2026-10-19T08:58:48.865Z"
+    },
+    {
+      "id": "act_5c397225-121",
+      "workspace_id": "ws_ebba18a2-3aa",
+      "actor_id": "user_successor",
+      "actor_name": "Successor",
+      "actor_avatar": "https://avatar.vercel.sh/successor@studio.io?s=96",
+      "action": "invitation_accepted",
+      "resource_type": "member",
+      "resource_id": "mem_55bc9124-f44",
+      "metadata": {
+        "role": "ADMIN",
+        "email": "successor@studio.io"
+      },
+      "created_at": "2026-10-19T08:58:48.870Z"
+    },
+    {
+      "id": "act_b8b985b2-e37",
+      "workspace_id": "ws_ebba18a2-3aa",
+      "actor_id": "user_founder_orig",
+      "actor_name": "Original Founder",
+      "action": "ownership_transferred",
+      "resource_type": "workspace",
+      "resource_id": "ws_ebba18a2-3aa",
+      "metadata": {
+        "new_owner_id": "user_successor",
+        "new_owner_name": "Successor"
+      },
+      "created_at": "2026-10-19T08:58:48.871Z"
+    },
+    {
+      "id": "act_002b9948-3c4",
+      "workspace_id": "ws_a898293e-7cc",
+      "actor_id": "user_acenv73so",
+      "actor_name": "fsdgfh",
+      "actor_avatar": "https://avatar.vercel.sh/yuvasankarreddykuppam@gmail.com?s=96",
+      "action": "workspace_created",
+      "resource_type": "workspace",
+      "resource_id": "ws_a898293e-7cc",
+      "metadata": {
+        "name": "yuva"
+      },
+      "created_at": "2026-10-19T09:02:55.492Z"
+    }
+  ]
+}
