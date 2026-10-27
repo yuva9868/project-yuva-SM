@@ -110,10 +110,23 @@
         "user_sarah"
       ],
       "createdAt": "2026-10-27T09:00:42.152Z",
-      "updatedAt": "2026-10-27T09:01:34.709Z",
-      "lastMessageAt": "2026-10-27T09:01:26.900Z",
-      "lastMessageContent": "This message was deleted",
+      "updatedAt": "2026-10-27T09:16:09.018Z",
+      "lastMessageAt": "2026-10-27T09:16:09.018Z",
+      "lastMessageContent": "hi",
       "lastMessageSenderId": "user_acenv73so"
+    },
+    {
+      "id": "conv_1793092884849_cba4wwv",
+      "type": "direct",
+      "participantIds": [
+        "user_sarah",
+        "user_test_1793092884845"
+      ],
+      "createdAt": "2026-10-27T09:21:24.849Z",
+      "updatedAt": "2026-10-27T09:21:24.888Z",
+      "lastMessageAt": "2026-10-27T09:21:24.888Z",
+      "lastMessageContent": "Able to message again after unblock",
+      "lastMessageSenderId": "user_test_1793092884845"
     }
   ],
   "participants": [
@@ -205,13 +218,25 @@
       "conversationId": "conv_1793091642152_9phqafy",
       "userId": "user_acenv73so",
       "joinedAt": "2026-10-27T09:00:42.152Z",
-      "lastReadAt": "2026-10-27T09:01:48.590Z"
+      "lastReadAt": "2026-10-27T09:16:10.559Z"
     },
     {
       "conversationId": "conv_1793091642152_9phqafy",
       "userId": "user_sarah",
       "joinedAt": "2026-10-27T09:00:42.152Z",
       "lastReadAt": "2026-10-27T09:00:41.153Z"
+    },
+    {
+      "conversationId": "conv_1793092884849_cba4wwv",
+      "userId": "user_sarah",
+      "joinedAt": "2026-10-27T09:21:24.849Z",
+      "lastReadAt": "2026-10-27T09:21:24.876Z"
+    },
+    {
+      "conversationId": "conv_1793092884849_cba4wwv",
+      "userId": "user_test_1793092884845",
+      "joinedAt": "2026-10-27T09:21:24.849Z",
+      "lastReadAt": "2026-10-27T09:21:24.888Z"
     }
   ],
   "messages": [
@@ -502,6 +527,112 @@
       "createdAt": "2026-10-27T09:01:26.900Z",
       "updatedAt": "2026-10-27T09:01:34.709Z",
       "deletedAt": "2026-10-27T09:01:34.709Z"
+    },
+    {
+      "id": "msg_1793092569018_ak0jspe",
+      "clientMessageId": "cl_1793092568970_ghdk9w",
+      "conversationId": "conv_1793091642152_9phqafy",
+      "senderId": "user_acenv73so",
+      "senderName": "fsdgfh",
+      "senderAvatar": "https://avatar.vercel.sh/yuvasankarreddykuppam@gmail.com?s=96",
+      "senderEmail": "yuvasankarreddykuppam@gmail.com",
+      "content": "hi",
+      "messageType": "text",
+      "replyTo": null,
+      "attachments": [],
+      "status": "sent",
+      "createdAt": "2026-10-27T09:16:09.018Z",
+      "updatedAt": "2026-10-27T09:16:09.018Z"
+    },
+    {
+      "id": "msg_1793092884854_eu0gsuy",
+      "clientMessageId": "test_client_id_1",
+      "conversationId": "conv_1793092884849_cba4wwv",
+      "senderId": "user_sarah",
+      "senderName": "Sarah Chen",
+      "senderEmail": "sarah@ideacheck.ai",
+      "content": "This message was deleted",
+      "messageType": "text",
+      "replyTo": null,
+      "attachments": [],
+      "status": "sent",
+      "createdAt": "2026-10-27T09:21:24.854Z",
+      "updatedAt": "2026-10-27T09:21:24.868Z",
+      "deletedAt": "2026-10-27T09:21:24.868Z"
+    },
+    {
+      "id": "msg_1793092884858_mx70son",
+      "conversationId": "conv_1793092884849_cba4wwv",
+      "senderId": "user_test_1793092884845",
+      "senderName": "Test Founder",
+      "senderEmail": "test_1793092884845@ideacheck.ai",
+      "content": "Thanks Sarah! Loving the platform.",
+      "messageType": "text",
+      "replyTo": {
+        "id": "msg_1793092884854_eu0gsuy",
+        "senderId": "user_sarah",
+        "senderName": "Sarah Chen",
+        "content": "Hello! Welcome to IdeaCheck AI. Let us build together."
+      },
+      "attachments": [],
+      "status": "sent",
+      "createdAt": "2026-10-27T09:21:24.858Z",
+      "updatedAt": "2026-10-27T09:21:24.858Z"
+    },
+    {
+      "id": "msg_1793092884876_qlu1zjy",
+      "conversationId": "conv_1793092884849_cba4wwv",
+      "senderId": "user_sarah",
+      "senderName": "Sarah Chen",
+      "senderEmail": "sarah@ideacheck.ai",
+      "content": "I've invited you to join our private workspace: \"IdeaCheck Core Founders\" as a EDITOR.",
+      "messageType": "workspace_invite",
+      "replyTo": null,
+      "attachments": [
+        {
+          "id": "att_ws_1793092884876",
+          "type": "workspace_invite",
+          "workspaceInviteData": {
+            "workspaceId": "ws_ideacheck_core",
+            "workspaceName": "IdeaCheck Core Founders",
+            "role": "EDITOR",
+            "invitationToken": "f500ca347edc786ef5238a1e5a5bd7ac15603c475f56807f",
+            "description": "Private executive workspace for IdeaCheck AI founding team, product roadmap, and seed investor documents.",
+            "status": "accepted"
+          }
+        }
+      ],
+      "status": "sent",
+      "createdAt": "2026-10-27T09:21:24.876Z",
+      "updatedAt": "2026-10-27T09:21:24.876Z"
+    },
+    {
+      "id": "msg_1793092884883_nmihk8j",
+      "conversationId": "conv_1793092884849_cba4wwv",
+      "senderId": "user_test_1793092884845",
+      "senderName": "Test Founder",
+      "senderEmail": "test_1793092884845@ideacheck.ai",
+      "content": "Accepted invitation to join \"IdeaCheck Core Founders\"!",
+      "messageType": "system",
+      "replyTo": null,
+      "attachments": [],
+      "status": "sent",
+      "createdAt": "2026-10-27T09:21:24.882Z",
+      "updatedAt": "2026-10-27T09:21:24.882Z"
+    },
+    {
+      "id": "msg_1793092884888_2g5u4ts",
+      "conversationId": "conv_1793092884849_cba4wwv",
+      "senderId": "user_test_1793092884845",
+      "senderName": "Test Founder",
+      "senderEmail": "test_1793092884845@ideacheck.ai",
+      "content": "Able to message again after unblock",
+      "messageType": "text",
+      "replyTo": null,
+      "attachments": [],
+      "status": "sent",
+      "createdAt": "2026-10-27T09:21:24.888Z",
+      "updatedAt": "2026-10-27T09:21:24.888Z"
     }
   ],
   "requests": [
@@ -572,6 +703,17 @@
       "status": "accepted",
       "createdAt": "2026-10-27T09:00:42.152Z",
       "updatedAt": "2026-10-27T09:00:42.152Z"
+    },
+    {
+      "id": "req_1793092884851_5l7ine",
+      "conversationId": "conv_1793092884849_cba4wwv",
+      "senderId": "user_sarah",
+      "senderName": "Sarah Chen",
+      "recipientId": "user_test_1793092884845",
+      "initialMessage": "Started a conversation",
+      "status": "accepted",
+      "createdAt": "2026-10-27T09:21:24.849Z",
+      "updatedAt": "2026-10-27T09:21:24.849Z"
     }
   ],
   "blocks": [],
@@ -588,12 +730,18 @@
       "allowMessagesFrom": "everyone",
       "showReadReceipts": true,
       "showOnlineStatus": true
+    },
+    {
+      "userId": "user_test_1793092884845",
+      "allowMessagesFrom": "everyone",
+      "showReadReceipts": true,
+      "showOnlineStatus": true
     }
   ],
   "presences": [
     {
       "userId": "user_sarah",
-      "lastSeenAt": "2026-10-27T08:55:03.895Z",
+      "lastSeenAt": "2026-10-27T09:21:24.876Z",
       "isOnline": true
     },
     {
@@ -613,7 +761,12 @@
     },
     {
       "userId": "user_acenv73so",
-      "lastSeenAt": "2026-10-27T09:02:18.395Z",
+      "lastSeenAt": "2026-10-27T09:19:58.383Z",
+      "isOnline": true
+    },
+    {
+      "userId": "user_test_1793092884845",
+      "lastSeenAt": "2026-10-27T09:21:24.888Z",
       "isOnline": true
     }
   ]

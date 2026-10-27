@@ -28,13 +28,26 @@ interface WorkspaceDatabase {
   activities: WorkspaceActivity[];
 }
 
+import os from 'os';
+
+function getWritableWorkspaceDbPath(): string {
+  if (process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.NODE_ENV === 'production') {
+    return path.join(os.tmpdir(), 'ideacheck_workspace_db.json');
+  }
+  return path.join(process.cwd(), '.workspace_data', 'db.json');
+}
+
 const DB_FILE_PATH = path.join(process.cwd(), '.workspace_data', 'db.json');
 
-// Helper to ensure data directory exists
-function ensureDbDir() {
-  const dir = path.dirname(DB_FILE_PATH);
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
+// Helper to ensure data directory exists safely
+function ensureDbDir(targetPath?: string) {
+  try {
+    const dir = path.dirname(targetPath || DB_FILE_PATH);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+  } catch (err) {
+    // Gracefully ignore on read-only environments
   }
 }
 
@@ -391,30 +404,42 @@ let cachedDb: WorkspaceDatabase | null = null;
 export function getDb(): WorkspaceDatabase {
   if (cachedDb) return cachedDb;
 
+  const writablePath = getWritableWorkspaceDbPath();
+
   try {
-    ensureDbDir();
+    if (fs.existsSync(writablePath)) {
+      const content = fs.readFileSync(writablePath, 'utf-8');
+      cachedDb = JSON.parse(content);
+      return cachedDb!;
+    }
+  } catch (err) {
+    // fallback
+  }
+
+  try {
     if (fs.existsSync(DB_FILE_PATH)) {
       const content = fs.readFileSync(DB_FILE_PATH, 'utf-8');
       cachedDb = JSON.parse(content);
       return cachedDb!;
     }
   } catch (err) {
-    console.error('Error reading workspace DB, initializing default seed:', err);
+    console.warn('Error reading workspace DB from bundled path:', err);
   }
 
   const initial = getInitialDb();
-  saveDb(initial);
   cachedDb = initial;
+  saveDb(initial);
   return cachedDb;
 }
 
 export function saveDb(db: WorkspaceDatabase): void {
   cachedDb = db;
+  const writablePath = getWritableWorkspaceDbPath();
   try {
-    ensureDbDir();
-    fs.writeFileSync(DB_FILE_PATH, JSON.stringify(db, null, 2), 'utf-8');
+    ensureDbDir(writablePath);
+    fs.writeFileSync(writablePath, JSON.stringify(db, null, 2), 'utf-8');
   } catch (err) {
-    console.error('Error saving workspace DB:', err);
+    console.warn('Error saving workspace DB (using memory cache):', err);
   }
 }
 

@@ -470,6 +470,17 @@
       "user_name": "Test Founder",
       "user_email": "test_1793091464958@ideacheck.ai",
       "user_avatar": "https://avatar.vercel.sh/test_1793091464958@ideacheck.ai?s=96"
+    },
+    {
+      "id": "mem_a89e61a4-042",
+      "workspace_id": "ws_ideacheck_core",
+      "user_id": "user_test_1793092884845",
+      "role": "EDITOR",
+      "joined_at": "2026-10-27T09:21:24.880Z",
+      "invited_by": "user_sarah",
+      "user_name": "Test Founder",
+      "user_email": "test_1793092884845@ideacheck.ai",
+      "user_avatar": "https://avatar.vercel.sh/test_1793092884845@ideacheck.ai?s=96"
     }
   ],
   "invitations": [
@@ -541,6 +552,20 @@
       "status": "accepted",
       "created_at": "2026-10-27T08:57:45.095Z",
       "accepted_at": "2026-10-27T08:57:45.106Z"
+    },
+    {
+      "id": "inv_0709ae84-d6e",
+      "workspace_id": "ws_ideacheck_core",
+      "email": "test_1793092884845@ideacheck.ai",
+      "role": "EDITOR",
+      "token_hash": "8df803d5bc6d86f63ee1a383c92f9fecd782844287ca3478fd8353dc1777b9d2",
+      "token": "f500ca347edc786ef5238a1e5a5bd7ac15603c475f56807f",
+      "invited_by": "user_sarah",
+      "invited_by_name": "Sarah Chen",
+      "expires_at": "2026-11-03T09:21:24.873Z",
+      "status": "accepted",
+      "created_at": "2026-10-27T09:21:24.873Z",
+      "accepted_at": "2026-10-27T09:21:24.880Z"
     }
   ],
   "folders": [
@@ -1332,6 +1357,35 @@
         "email": "test_1793091464958@ideacheck.ai"
       },
       "created_at": "2026-10-27T08:57:45.106Z"
+    },
+    {
+      "id": "act_a542cb59-fb8",
+      "workspace_id": "ws_ideacheck_core",
+      "actor_id": "user_sarah",
+      "actor_name": "Sarah Chen",
+      "action": "member_invited",
+      "resource_type": "invitation",
+      "resource_id": "inv_0709ae84-d6e",
+      "metadata": {
+        "email": "test_1793092884845@ideacheck.ai",
+        "role": "EDITOR"
+      },
+      "created_at": "2026-10-27T09:21:24.873Z"
+    },
+    {
+      "id": "act_f745b132-cd8",
+      "workspace_id": "ws_ideacheck_core",
+      "actor_id": "user_test_1793092884845",
+      "actor_name": "Test Founder",
+      "actor_avatar": "https://avatar.vercel.sh/test_1793092884845@ideacheck.ai?s=96",
+      "action": "invitation_accepted",
+      "resource_type": "member",
+      "resource_id": "mem_a89e61a4-042",
+      "metadata": {
+        "role": "EDITOR",
+        "email": "test_1793092884845@ideacheck.ai"
+      },
+      "created_at": "2026-10-27T09:21:24.880Z"
     }
   ]
 }

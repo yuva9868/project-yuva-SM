@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
+import os from 'os';
 import {
   Conversation,
   ConversationParticipant,
@@ -30,15 +31,29 @@ interface MessagesDatabase {
   presences: UserPresence[];
 }
 
-const MESSAGES_DB_FILE = path.join(process.cwd(), '.workspace_data', 'messages.json');
+let cachedMessagesDb: MessagesDatabase | null = null;
+
+function getWritableDbPath(): string {
+  // In serverless environments (Vercel, AWS Lambda) or production, use the OS writable tmp directory
+  if (process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.NODE_ENV === 'production') {
+    return path.join(os.tmpdir(), 'ideacheck_messages.json');
+  }
+  return path.join(process.cwd(), '.workspace_data', 'messages.json');
+}
+
+const BUNDLED_DB_FILE = path.join(process.cwd(), '.workspace_data', 'messages.json');
 
 // Memory rate limit tracker: userId -> array of timestamps
 const rateLimitTracker = new Map<string, number[]>();
 
-function ensureDir() {
-  const dir = path.dirname(MESSAGES_DB_FILE);
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
+function ensureDir(targetPath: string) {
+  try {
+    const dir = path.dirname(targetPath);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+  } catch (e) {
+    // Gracefully ignore on read-only environments
   }
 }
 
@@ -285,26 +300,49 @@ function getInitialMessagesDb(): MessagesDatabase {
 }
 
 export function getMessagesDb(): MessagesDatabase {
-  ensureDir();
-  if (!fs.existsSync(MESSAGES_DB_FILE)) {
-    const initial = getInitialMessagesDb();
-    fs.writeFileSync(MESSAGES_DB_FILE, JSON.stringify(initial, null, 2), 'utf-8');
-    return initial;
-  }
+  if (cachedMessagesDb) return cachedMessagesDb;
+
+  const writablePath = getWritableDbPath();
+
+  // 1. Try reading from writable tmp path first
   try {
-    const raw = fs.readFileSync(MESSAGES_DB_FILE, 'utf-8');
-    return JSON.parse(raw);
+    if (fs.existsSync(writablePath)) {
+      const raw = fs.readFileSync(writablePath, 'utf-8');
+      cachedMessagesDb = JSON.parse(raw);
+      return cachedMessagesDb!;
+    }
   } catch (e) {
-    console.error('Failed reading messages DB, resetting to initial:', e);
-    const initial = getInitialMessagesDb();
-    fs.writeFileSync(MESSAGES_DB_FILE, JSON.stringify(initial, null, 2), 'utf-8');
-    return initial;
+    console.warn('Could not read from writable path, trying bundled fallback:', e);
   }
+
+  // 2. Try reading from bundled static path (read-only in Vercel is fine)
+  try {
+    if (fs.existsSync(BUNDLED_DB_FILE)) {
+      const raw = fs.readFileSync(BUNDLED_DB_FILE, 'utf-8');
+      cachedMessagesDb = JSON.parse(raw);
+      return cachedMessagesDb!;
+    }
+  } catch (e) {
+    console.warn('Could not read from bundled file:', e);
+  }
+
+  // 3. Fallback to initial seed
+  const initial = getInitialMessagesDb();
+  cachedMessagesDb = initial;
+  saveMessagesDb(initial);
+  return initial;
 }
 
 export function saveMessagesDb(db: MessagesDatabase): void {
-  ensureDir();
-  fs.writeFileSync(MESSAGES_DB_FILE, JSON.stringify(db, null, 2), 'utf-8');
+  cachedMessagesDb = db;
+  const writablePath = getWritableDbPath();
+  try {
+    ensureDir(writablePath);
+    fs.writeFileSync(writablePath, JSON.stringify(db, null, 2), 'utf-8');
+  } catch (e) {
+    // In serverless read-only contexts, in-memory state continues working seamlessly
+    console.warn('Could not write messages DB to filesystem (using memory cache):', e);
+  }
 }
 
 // User Profile Resolver (matches founders from community-data or generates safe fallback)
