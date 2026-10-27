@@ -392,7 +392,7 @@ export interface CollaborationRequest {
 export interface NotificationItem {
   id: string;
   userId: string;
-  type: 'support' | 'comment' | 'follow' | 'collaboration_request' | 'feedback' | 'mention' | 'trending' | 'saved' | 'ai_recommendation' | 'milestone' | 'validation_response' | 'mentor_request' | 'collaboration_accepted';
+  type: 'support' | 'comment' | 'follow' | 'collaboration_request' | 'feedback' | 'mention' | 'trending' | 'saved' | 'ai_recommendation' | 'milestone' | 'validation_response' | 'mentor_request' | 'collaboration_accepted' | 'message' | 'direct_message';
   title: string;
   message: string;
   link: string;

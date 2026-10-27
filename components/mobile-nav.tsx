@@ -2,8 +2,10 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Compass, PlusCircle, Bell, User } from 'lucide-react';
+import { Home, Compass, PlusCircle, Bell, User, MessageSquare } from 'lucide-react';
 import { useAuth } from '@/lib/auth-context';
+import { useState, useEffect } from 'react';
+import { apiGetUnreadCount } from '@/lib/messages-client';
 
 interface MobileNavProps {
   onOpenNotifications?: () => void;
@@ -13,17 +15,23 @@ interface MobileNavProps {
 export function MobileNav({ onOpenNotifications, unreadNotificationsCount = 0 }: MobileNavProps) {
   const pathname = usePathname();
   const { user } = useAuth();
+  const [unreadMessages, setUnreadMessages] = useState(0);
+
+  useEffect(() => {
+    if (user) {
+      apiGetUnreadCount(user).then(setUnreadMessages);
+    }
+  }, [user]);
 
   const navItems = [
     { label: 'Home', href: '/', icon: Home },
     { label: 'Discover', href: '/community', icon: Compass },
     { label: 'Create', href: '/submit', icon: PlusCircle, isHighlight: true },
     { 
-      label: 'Activity', 
-      onClick: onOpenNotifications, 
-      href: '#', 
-      icon: Bell, 
-      badge: unreadNotificationsCount 
+      label: 'Messages', 
+      href: '/messages', 
+      icon: MessageSquare, 
+      badge: unreadMessages 
     },
     { label: 'Profile', href: user ? '/dashboard' : '/login', icon: User },
   ];

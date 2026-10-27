@@ -304,14 +304,26 @@ export default function ProjectDetailPage() {
               </Button>
 
               {!isOwner && (
-                <Button
-                  variant="outline"
-                  onClick={() => setCollabModalOpen(true)}
-                  className="gap-2 font-semibold border-primary/40 text-primary hover:bg-primary/10 rounded-xl text-xs"
-                >
-                  <Users className="w-4 h-4" />
-                  <span>Request Collaboration</span>
-                </Button>
+                <>
+                  <Link href={`/messages?userId=${project.founderId}&projectId=${project.id}`}>
+                    <Button
+                      variant="outline"
+                      className="gap-2 font-semibold border-primary/40 text-primary hover:bg-primary/10 rounded-xl text-xs"
+                    >
+                      <MessageSquare className="w-4 h-4" />
+                      <span>Message Founder</span>
+                    </Button>
+                  </Link>
+
+                  <Button
+                    variant="outline"
+                    onClick={() => setCollabModalOpen(true)}
+                    className="gap-2 font-semibold border-primary/40 text-primary hover:bg-primary/10 rounded-xl text-xs"
+                  >
+                    <Users className="w-4 h-4" />
+                    <span>Request Collaboration</span>
+                  </Button>
+                </>
               )}
 
               <Button
@@ -552,11 +564,21 @@ export default function ProjectDetailPage() {
                 <p className="text-xs text-muted-foreground line-clamp-3">
                   Full-stack founder building evidence-validated products on IdeaCheck AI.
                 </p>
-                <Link href={`/profile/${project.founderUsername}`}>
-                  <Button variant="outline" size="sm" className="w-full text-xs font-bold rounded-xl">
-                    View Founder Credibility Passport
-                  </Button>
-                </Link>
+                <div className="space-y-2 pt-1">
+                  {!isOwner && (
+                    <Link href={`/messages?userId=${project.founderId}&projectId=${project.id}`}>
+                      <Button size="sm" className="w-full text-xs font-bold rounded-xl gap-2 shadow-sm">
+                        <MessageSquare className="w-4 h-4" />
+                        <span>Direct Message Founder</span>
+                      </Button>
+                    </Link>
+                  )}
+                  <Link href={`/profile/${project.founderUsername}`}>
+                    <Button variant="outline" size="sm" className="w-full text-xs font-bold rounded-xl">
+                      View Founder Credibility Passport
+                    </Button>
+                  </Link>
+                </div>
               </Card>
 
               {/* Engagement Stats */}

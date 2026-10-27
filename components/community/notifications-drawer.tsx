@@ -28,7 +28,9 @@ export function NotificationsDrawer({
         return <Heart className="w-4 h-4 text-rose-500 fill-rose-500" />;
       case 'comment':
       case 'feedback':
-        return <MessageSquare className="w-4 h-4 text-blue-500" />;
+      case 'message':
+      case 'direct_message':
+        return <MessageSquare className="w-4 h-4 text-primary" />;
       case 'collaboration_request':
         return <Users className="w-4 h-4 text-purple-500" />;
       case 'trending':

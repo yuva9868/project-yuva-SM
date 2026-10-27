@@ -133,13 +133,21 @@ export default function MentorsPage() {
                   <span className="text-primary font-medium">{mentor.availability}</span>
                 </div>
 
-                <Button
-                  onClick={() => { setActiveMentor(mentor); setModalOpen(true); }}
-                  className="w-full rounded-xl text-xs font-bold gap-1.5 shadow-sm"
-                >
-                  <Calendar className="w-3.5 h-3.5" />
-                  <span>Request Office Hours</span>
-                </Button>
+                <div className="flex gap-2">
+                  <Link href={`/messages?userId=${mentor.userId}`} className="flex-1">
+                    <Button variant="outline" className="w-full rounded-xl text-xs font-semibold gap-1.5 border-primary/30 text-primary hover:bg-primary/10">
+                      <MessageSquare className="w-3.5 h-3.5" />
+                      <span>Message</span>
+                    </Button>
+                  </Link>
+                  <Button
+                    onClick={() => { setActiveMentor(mentor); setModalOpen(true); }}
+                    className="flex-1 rounded-xl text-xs font-bold gap-1.5 shadow-sm"
+                  >
+                    <Calendar className="w-3.5 h-3.5" />
+                    <span>Office Hours</span>
+                  </Button>
+                </div>
               </div>
             </Card>
           ))}

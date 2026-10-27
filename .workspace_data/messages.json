@@ -1,0 +1,620 @@
+{
+  "conversations": [
+    {
+      "id": "conv_sarah_alex_1",
+      "type": "direct",
+      "participantIds": [
+        "user_sarah",
+        "user_alex"
+      ],
+      "createdAt": "2026-10-27T06:55:03.894Z",
+      "updatedAt": "2026-10-27T08:50:03.894Z",
+      "lastMessageAt": "2026-10-27T08:50:03.894Z",
+      "lastMessageContent": "Awesome, reviewing the Figma flow right now! Ready to integrate the workspace API.",
+      "lastMessageSenderId": "user_sarah",
+      "projectId": "proj_ai_validation_copilot",
+      "projectTitle": "AI Startup Validation Copilot",
+      "projectTagline": "LLM agents that run customer discovery & simulated competitor audits",
+      "projectStage": "Beta",
+      "projectLogoUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": "conv_sarah_marcus_2",
+      "type": "direct",
+      "participantIds": [
+        "user_sarah",
+        "user_marcus"
+      ],
+      "createdAt": "2026-10-26T08:55:03.894Z",
+      "updatedAt": "2026-10-27T08:10:03.894Z",
+      "lastMessageAt": "2026-10-27T08:10:03.894Z",
+      "lastMessageContent": "I checked out your DevTool submission. Would love to explore a co-founder partnership.",
+      "lastMessageSenderId": "user_marcus",
+      "projectId": "proj_ai_validation_copilot",
+      "projectTitle": "AI Startup Validation Copilot",
+      "projectTagline": "LLM agents that run customer discovery & simulated competitor audits",
+      "projectStage": "Beta"
+    },
+    {
+      "id": "conv_alex_elena_3",
+      "type": "direct",
+      "participantIds": [
+        "user_alex",
+        "user_elena"
+      ],
+      "createdAt": "2026-10-25T08:55:03.894Z",
+      "updatedAt": "2026-10-27T03:55:03.894Z",
+      "lastMessageAt": "2026-10-27T03:55:03.894Z",
+      "lastMessageContent": "Thank you for the investor feedback on our traction metrics. We reached 1,200 active founders this week.",
+      "lastMessageSenderId": "user_alex"
+    },
+    {
+      "id": "conv_1793091303955_mfpt3oc",
+      "type": "direct",
+      "participantIds": [
+        "user_sarah",
+        "user_test_founder_1793091303893"
+      ],
+      "createdAt": "2026-10-27T08:55:03.955Z",
+      "updatedAt": "2026-10-27T08:55:04.019Z",
+      "lastMessageAt": "2026-10-27T08:55:04.019Z",
+      "lastMessageContent": "Thanks Sarah! Loving the platform.",
+      "lastMessageSenderId": "user_test_founder_1793091303893"
+    },
+    {
+      "id": "conv_1793091303982_j1kdlfs",
+      "type": "direct",
+      "participantIds": [
+        "user_sarah",
+        "user_elena"
+      ],
+      "createdAt": "2026-10-27T08:55:03.982Z",
+      "updatedAt": "2026-10-27T08:55:03.982Z",
+      "lastMessageAt": "2026-10-27T08:55:03.982Z",
+      "projectId": "proj_ai_validation_copilot",
+      "projectTitle": "AI Startup Validation Copilot",
+      "projectTagline": "LLM agents for customer discovery",
+      "projectStage": "Beta"
+    },
+    {
+      "id": "conv_1793091352974_pztzwvs",
+      "type": "direct",
+      "participantIds": [
+        "user_sarah",
+        "user_test_founder_1793091352967"
+      ],
+      "createdAt": "2026-10-27T08:55:52.974Z",
+      "updatedAt": "2026-10-27T08:55:53.003Z",
+      "lastMessageAt": "2026-10-27T08:55:53.003Z",
+      "lastMessageContent": "Thanks Sarah! Loving the platform.",
+      "lastMessageSenderId": "user_test_founder_1793091352967"
+    },
+    {
+      "id": "conv_1793091464963_9ozpknk",
+      "type": "direct",
+      "participantIds": [
+        "user_sarah",
+        "user_test_1793091464958"
+      ],
+      "createdAt": "2026-10-27T08:57:44.963Z",
+      "updatedAt": "2026-10-27T08:57:45.135Z",
+      "lastMessageAt": "2026-10-27T08:57:45.135Z",
+      "lastMessageContent": "Able to message again after unblock",
+      "lastMessageSenderId": "user_test_1793091464958"
+    },
+    {
+      "id": "conv_1793091642152_9phqafy",
+      "type": "direct",
+      "participantIds": [
+        "user_acenv73so",
+        "user_sarah"
+      ],
+      "createdAt": "2026-10-27T09:00:42.152Z",
+      "updatedAt": "2026-10-27T09:01:34.709Z",
+      "lastMessageAt": "2026-10-27T09:01:26.900Z",
+      "lastMessageContent": "This message was deleted",
+      "lastMessageSenderId": "user_acenv73so"
+    }
+  ],
+  "participants": [
+    {
+      "conversationId": "conv_sarah_alex_1",
+      "userId": "user_sarah",
+      "joinedAt": "2026-10-27T06:55:03.894Z",
+      "lastReadAt": "2026-10-27T08:53:03.894Z"
+    },
+    {
+      "conversationId": "conv_sarah_alex_1",
+      "userId": "user_alex",
+      "joinedAt": "2026-10-27T06:55:03.894Z",
+      "lastReadAt": "2026-10-27T08:49:03.894Z"
+    },
+    {
+      "conversationId": "conv_sarah_marcus_2",
+      "userId": "user_sarah",
+      "joinedAt": "2026-10-26T08:55:03.894Z",
+      "lastReadAt": "2026-10-27T07:15:03.894Z"
+    },
+    {
+      "conversationId": "conv_sarah_marcus_2",
+      "userId": "user_marcus",
+      "joinedAt": "2026-10-26T08:55:03.894Z",
+      "lastReadAt": "2026-10-27T08:10:03.894Z"
+    },
+    {
+      "conversationId": "conv_alex_elena_3",
+      "userId": "user_alex",
+      "joinedAt": "2026-10-25T08:55:03.894Z",
+      "lastReadAt": "2026-10-27T03:55:03.894Z"
+    },
+    {
+      "conversationId": "conv_alex_elena_3",
+      "userId": "user_elena",
+      "joinedAt": "2026-10-25T08:55:03.894Z",
+      "lastReadAt": "2026-10-27T03:45:03.894Z"
+    },
+    {
+      "conversationId": "conv_1793091303955_mfpt3oc",
+      "userId": "user_sarah",
+      "joinedAt": "2026-10-27T08:55:03.955Z",
+      "lastReadAt": "2026-10-27T08:55:04.070Z"
+    },
+    {
+      "conversationId": "conv_1793091303955_mfpt3oc",
+      "userId": "user_test_founder_1793091303893",
+      "joinedAt": "2026-10-27T08:55:03.955Z",
+      "lastReadAt": "2026-10-27T08:55:04.019Z"
+    },
+    {
+      "conversationId": "conv_1793091303982_j1kdlfs",
+      "userId": "user_sarah",
+      "joinedAt": "2026-10-27T08:55:03.982Z",
+      "lastReadAt": "2026-10-27T08:55:03.982Z"
+    },
+    {
+      "conversationId": "conv_1793091303982_j1kdlfs",
+      "userId": "user_elena",
+      "joinedAt": "2026-10-27T08:55:03.982Z",
+      "lastReadAt": "2026-10-27T08:55:02.982Z"
+    },
+    {
+      "conversationId": "conv_1793091352974_pztzwvs",
+      "userId": "user_sarah",
+      "joinedAt": "2026-10-27T08:55:52.974Z",
+      "lastReadAt": "2026-10-27T08:55:53.026Z"
+    },
+    {
+      "conversationId": "conv_1793091352974_pztzwvs",
+      "userId": "user_test_founder_1793091352967",
+      "joinedAt": "2026-10-27T08:55:52.974Z",
+      "lastReadAt": "2026-10-27T08:55:53.003Z"
+    },
+    {
+      "conversationId": "conv_1793091464963_9ozpknk",
+      "userId": "user_sarah",
+      "joinedAt": "2026-10-27T08:57:44.963Z",
+      "lastReadAt": "2026-10-27T08:57:45.100Z"
+    },
+    {
+      "conversationId": "conv_1793091464963_9ozpknk",
+      "userId": "user_test_1793091464958",
+      "joinedAt": "2026-10-27T08:57:44.963Z",
+      "lastReadAt": "2026-10-27T08:57:45.135Z"
+    },
+    {
+      "conversationId": "conv_1793091642152_9phqafy",
+      "userId": "user_acenv73so",
+      "joinedAt": "2026-10-27T09:00:42.152Z",
+      "lastReadAt": "2026-10-27T09:01:48.590Z"
+    },
+    {
+      "conversationId": "conv_1793091642152_9phqafy",
+      "userId": "user_sarah",
+      "joinedAt": "2026-10-27T09:00:42.152Z",
+      "lastReadAt": "2026-10-27T09:00:41.153Z"
+    }
+  ],
+  "messages": [
+    {
+      "id": "msg_101",
+      "conversationId": "conv_sarah_alex_1",
+      "senderId": "user_alex",
+      "senderName": "Alex Vance",
+      "senderAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+      "content": "Hi Sarah! Loved the AI Startup Validation Copilot launch on the community feed.",
+      "messageType": "text",
+      "status": "read",
+      "createdAt": "2026-10-27T08:10:03.894Z",
+      "updatedAt": "2026-10-27T08:10:03.894Z"
+    },
+    {
+      "id": "msg_102",
+      "conversationId": "conv_sarah_alex_1",
+      "senderId": "user_sarah",
+      "senderName": "Sarah Chen",
+      "senderAvatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "content": "Thanks Alex! We just published the interactive demo and prototype link. Here is the project card:",
+      "messageType": "project_share",
+      "attachments": [
+        {
+          "id": "att_proj_1",
+          "type": "project",
+          "projectData": {
+            "id": "proj_ai_validation_copilot",
+            "name": "AI Startup Validation Copilot",
+            "tagline": "LLM agents that run customer discovery & simulated competitor audits",
+            "stage": "Beta",
+            "founderId": "user_sarah",
+            "founderName": "Sarah Chen",
+            "founderAvatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+            "logoUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=150&auto=format&fit=crop&q=80",
+            "category": "Developer Tools & AI",
+            "url": "/community/proj_ai_validation_copilot"
+          }
+        }
+      ],
+      "status": "read",
+      "createdAt": "2026-10-27T08:20:03.894Z",
+      "updatedAt": "2026-10-27T08:20:03.894Z"
+    },
+    {
+      "id": "msg_103",
+      "conversationId": "conv_sarah_alex_1",
+      "senderId": "user_alex",
+      "senderName": "Alex Vance",
+      "senderAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+      "content": "The architecture looks pristine. I checked the prototype at https://github.com/ideacheck-ai/copilot-demo — I can help build the Next.js real-time collaborative workspace!",
+      "messageType": "text",
+      "replyTo": {
+        "id": "msg_102",
+        "senderId": "user_sarah",
+        "senderName": "Sarah Chen",
+        "content": "Thanks Alex! We just published the interactive demo and prototype link."
+      },
+      "status": "read",
+      "createdAt": "2026-10-27T08:35:03.894Z",
+      "updatedAt": "2026-10-27T08:35:03.894Z"
+    },
+    {
+      "id": "msg_104",
+      "conversationId": "conv_sarah_alex_1",
+      "senderId": "user_sarah",
+      "senderName": "Sarah Chen",
+      "senderAvatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "content": "Awesome, reviewing the Figma flow right now! Ready to integrate the workspace API.",
+      "messageType": "text",
+      "status": "read",
+      "createdAt": "2026-10-27T08:50:03.894Z",
+      "updatedAt": "2026-10-27T08:50:03.894Z"
+    },
+    {
+      "id": "msg_201",
+      "conversationId": "conv_sarah_marcus_2",
+      "senderId": "user_marcus",
+      "senderName": "Marcus Thorne",
+      "senderAvatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+      "content": "I checked out your DevTool submission. Would love to explore a co-founder partnership.",
+      "messageType": "text",
+      "status": "sent",
+      "createdAt": "2026-10-27T08:10:03.894Z",
+      "updatedAt": "2026-10-27T08:10:03.894Z"
+    },
+    {
+      "id": "msg_301",
+      "conversationId": "conv_alex_elena_3",
+      "senderId": "user_alex",
+      "senderName": "Alex Vance",
+      "senderAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+      "content": "Thank you for the investor feedback on our traction metrics. We reached 1,200 active founders this week.",
+      "messageType": "text",
+      "status": "read",
+      "createdAt": "2026-10-27T03:55:03.894Z",
+      "updatedAt": "2026-10-27T03:55:03.894Z"
+    },
+    {
+      "id": "msg_1793091303999_pna2xfr",
+      "clientMessageId": "test_client_id_1",
+      "conversationId": "conv_1793091303955_mfpt3oc",
+      "senderId": "user_sarah",
+      "senderName": "Sarah Chen",
+      "senderEmail": "sarah@ideacheck.ai",
+      "content": "Hello! Welcome to IdeaCheck AI. Let us build together.",
+      "messageType": "text",
+      "replyTo": null,
+      "attachments": [],
+      "status": "sent",
+      "createdAt": "2026-10-27T08:55:03.999Z",
+      "updatedAt": "2026-10-27T08:55:03.999Z"
+    },
+    {
+      "id": "msg_1793091304019_5vum329",
+      "conversationId": "conv_1793091303955_mfpt3oc",
+      "senderId": "user_test_founder_1793091303893",
+      "senderName": "Test Founder",
+      "senderEmail": "test_founder@example.com",
+      "content": "Thanks Sarah! Loving the platform.",
+      "messageType": "text",
+      "replyTo": {
+        "id": "msg_1793091303999_pna2xfr",
+        "senderId": "user_sarah",
+        "senderName": "Sarah Chen",
+        "content": "Hello! Welcome to IdeaCheck AI. Let us build together."
+      },
+      "attachments": [],
+      "status": "sent",
+      "createdAt": "2026-10-27T08:55:04.019Z",
+      "updatedAt": "2026-10-27T08:55:04.019Z"
+    },
+    {
+      "id": "msg_1793091352992_wm477zm",
+      "clientMessageId": "test_client_id_1",
+      "conversationId": "conv_1793091352974_pztzwvs",
+      "senderId": "user_sarah",
+      "senderName": "Sarah Chen",
+      "senderEmail": "sarah@ideacheck.ai",
+      "content": "This message was deleted",
+      "messageType": "text",
+      "replyTo": null,
+      "attachments": [],
+      "status": "sent",
+      "createdAt": "2026-10-27T08:55:52.992Z",
+      "updatedAt": "2026-10-27T08:55:53.068Z",
+      "deletedAt": "2026-10-27T08:55:53.068Z"
+    },
+    {
+      "id": "msg_1793091353003_wvhovxl",
+      "conversationId": "conv_1793091352974_pztzwvs",
+      "senderId": "user_test_founder_1793091352967",
+      "senderName": "Test Founder",
+      "senderEmail": "test_founder@example.com",
+      "content": "Thanks Sarah! Loving the platform.",
+      "messageType": "text",
+      "replyTo": {
+        "id": "msg_1793091352992_wm477zm",
+        "senderId": "user_sarah",
+        "senderName": "Sarah Chen",
+        "content": "Hello! Welcome to IdeaCheck AI. Let us build together."
+      },
+      "attachments": [],
+      "status": "sent",
+      "createdAt": "2026-10-27T08:55:53.003Z",
+      "updatedAt": "2026-10-27T08:55:53.003Z"
+    },
+    {
+      "id": "msg_1793091464982_hivmta9",
+      "clientMessageId": "test_client_id_1",
+      "conversationId": "conv_1793091464963_9ozpknk",
+      "senderId": "user_sarah",
+      "senderName": "Sarah Chen",
+      "senderEmail": "sarah@ideacheck.ai",
+      "content": "This message was deleted",
+      "messageType": "text",
+      "replyTo": null,
+      "attachments": [],
+      "status": "sent",
+      "createdAt": "2026-10-27T08:57:44.982Z",
+      "updatedAt": "2026-10-27T08:57:45.086Z",
+      "deletedAt": "2026-10-27T08:57:45.086Z"
+    },
+    {
+      "id": "msg_1793091464994_km3kiy9",
+      "conversationId": "conv_1793091464963_9ozpknk",
+      "senderId": "user_test_1793091464958",
+      "senderName": "Test Founder",
+      "senderEmail": "test_1793091464958@ideacheck.ai",
+      "content": "Thanks Sarah! Loving the platform.",
+      "messageType": "text",
+      "replyTo": {
+        "id": "msg_1793091464982_hivmta9",
+        "senderId": "user_sarah",
+        "senderName": "Sarah Chen",
+        "content": "Hello! Welcome to IdeaCheck AI. Let us build together."
+      },
+      "attachments": [],
+      "status": "sent",
+      "createdAt": "2026-10-27T08:57:44.994Z",
+      "updatedAt": "2026-10-27T08:57:44.994Z"
+    },
+    {
+      "id": "msg_1793091465101_qo7bme0",
+      "conversationId": "conv_1793091464963_9ozpknk",
+      "senderId": "user_sarah",
+      "senderName": "Sarah Chen",
+      "senderEmail": "sarah@ideacheck.ai",
+      "content": "I've invited you to join our private workspace: \"IdeaCheck Core Founders\" as a EDITOR.",
+      "messageType": "workspace_invite",
+      "replyTo": null,
+      "attachments": [
+        {
+          "id": "att_ws_1793091465097",
+          "type": "workspace_invite",
+          "workspaceInviteData": {
+            "workspaceId": "ws_ideacheck_core",
+            "workspaceName": "IdeaCheck Core Founders",
+            "role": "EDITOR",
+            "invitationToken": "e99ea5740de57e7f141cc92d5112208d87756add368ee092",
+            "description": "Private executive workspace for IdeaCheck AI founding team, product roadmap, and seed investor documents.",
+            "status": "accepted"
+          }
+        }
+      ],
+      "status": "sent",
+      "createdAt": "2026-10-27T08:57:45.100Z",
+      "updatedAt": "2026-10-27T08:57:45.100Z"
+    },
+    {
+      "id": "msg_1793091465113_58d1jiw",
+      "conversationId": "conv_1793091464963_9ozpknk",
+      "senderId": "user_test_1793091464958",
+      "senderName": "Test Founder",
+      "senderEmail": "test_1793091464958@ideacheck.ai",
+      "content": "Accepted invitation to join \"IdeaCheck Core Founders\"!",
+      "messageType": "system",
+      "replyTo": null,
+      "attachments": [],
+      "status": "sent",
+      "createdAt": "2026-10-27T08:57:45.113Z",
+      "updatedAt": "2026-10-27T08:57:45.113Z"
+    },
+    {
+      "id": "msg_1793091465135_fjqgedo",
+      "conversationId": "conv_1793091464963_9ozpknk",
+      "senderId": "user_test_1793091464958",
+      "senderName": "Test Founder",
+      "senderEmail": "test_1793091464958@ideacheck.ai",
+      "content": "Able to message again after unblock",
+      "messageType": "text",
+      "replyTo": null,
+      "attachments": [],
+      "status": "sent",
+      "createdAt": "2026-10-27T08:57:45.135Z",
+      "updatedAt": "2026-10-27T08:57:45.135Z"
+    },
+    {
+      "id": "msg_1793091650165_39w7pcl",
+      "clientMessageId": "cl_1793091650110_fcopn5",
+      "conversationId": "conv_1793091642152_9phqafy",
+      "senderId": "user_acenv73so",
+      "senderName": "fsdgfh",
+      "senderAvatar": "https://avatar.vercel.sh/yuvasankarreddykuppam@gmail.com?s=96",
+      "senderEmail": "yuvasankarreddykuppam@gmail.com",
+      "content": "hi",
+      "messageType": "text",
+      "replyTo": null,
+      "attachments": [],
+      "status": "sent",
+      "createdAt": "2026-10-27T09:00:50.164Z",
+      "updatedAt": "2026-10-27T09:00:50.164Z"
+    },
+    {
+      "id": "msg_1793091686900_j8i50mg",
+      "clientMessageId": "cl_1793091686819_pzsjts",
+      "conversationId": "conv_1793091642152_9phqafy",
+      "senderId": "user_acenv73so",
+      "senderName": "fsdgfh",
+      "senderAvatar": "https://avatar.vercel.sh/yuvasankarreddykuppam@gmail.com?s=96",
+      "senderEmail": "yuvasankarreddykuppam@gmail.com",
+      "content": "This message was deleted",
+      "messageType": "text",
+      "replyTo": null,
+      "attachments": [],
+      "status": "sent",
+      "createdAt": "2026-10-27T09:01:26.900Z",
+      "updatedAt": "2026-10-27T09:01:34.709Z",
+      "deletedAt": "2026-10-27T09:01:34.709Z"
+    }
+  ],
+  "requests": [
+    {
+      "id": "req_marcus_sarah_1",
+      "conversationId": "conv_sarah_marcus_2",
+      "senderId": "user_marcus",
+      "senderName": "Marcus Thorne",
+      "senderAvatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+      "recipientId": "user_sarah",
+      "initialMessage": "I checked out your DevTool submission. Would love to explore a co-founder partnership.",
+      "status": "pending",
+      "createdAt": "2026-10-27T08:10:03.894Z",
+      "updatedAt": "2026-10-27T08:10:03.894Z"
+    },
+    {
+      "id": "req_1793091303960_g82t2l",
+      "conversationId": "conv_1793091303955_mfpt3oc",
+      "senderId": "user_sarah",
+      "senderName": "Sarah Chen",
+      "recipientId": "user_test_founder_1793091303893",
+      "initialMessage": "Started a conversation",
+      "status": "accepted",
+      "createdAt": "2026-10-27T08:55:03.955Z",
+      "updatedAt": "2026-10-27T08:55:03.955Z"
+    },
+    {
+      "id": "req_1793091303986_jc4efu",
+      "conversationId": "conv_1793091303982_j1kdlfs",
+      "senderId": "user_sarah",
+      "senderName": "Sarah Chen",
+      "recipientId": "user_elena",
+      "initialMessage": "Reached out regarding AI Startup Validation Copilot",
+      "status": "accepted",
+      "createdAt": "2026-10-27T08:55:03.982Z",
+      "updatedAt": "2026-10-27T08:55:03.982Z"
+    },
+    {
+      "id": "req_1793091352978_pnn07u",
+      "conversationId": "conv_1793091352974_pztzwvs",
+      "senderId": "user_sarah",
+      "senderName": "Sarah Chen",
+      "recipientId": "user_test_founder_1793091352967",
+      "initialMessage": "Started a conversation",
+      "status": "accepted",
+      "createdAt": "2026-10-27T08:55:52.974Z",
+      "updatedAt": "2026-10-27T08:55:52.974Z"
+    },
+    {
+      "id": "req_1793091464967_1k5sk1",
+      "conversationId": "conv_1793091464963_9ozpknk",
+      "senderId": "user_sarah",
+      "senderName": "Sarah Chen",
+      "recipientId": "user_test_1793091464958",
+      "initialMessage": "Started a conversation",
+      "status": "accepted",
+      "createdAt": "2026-10-27T08:57:44.963Z",
+      "updatedAt": "2026-10-27T08:57:44.963Z"
+    },
+    {
+      "id": "req_1793091642155_ktc938",
+      "conversationId": "conv_1793091642152_9phqafy",
+      "senderId": "user_acenv73so",
+      "senderName": "fsdgfh",
+      "senderAvatar": "https://avatar.vercel.sh/yuvasankarreddykuppam@gmail.com?s=96",
+      "recipientId": "user_sarah",
+      "initialMessage": "Started a conversation",
+      "status": "accepted",
+      "createdAt": "2026-10-27T09:00:42.152Z",
+      "updatedAt": "2026-10-27T09:00:42.152Z"
+    }
+  ],
+  "blocks": [],
+  "reports": [],
+  "privacySettings": [
+    {
+      "userId": "user_sarah",
+      "allowMessagesFrom": "everyone",
+      "showReadReceipts": true,
+      "showOnlineStatus": true
+    },
+    {
+      "userId": "user_alex",
+      "allowMessagesFrom": "everyone",
+      "showReadReceipts": true,
+      "showOnlineStatus": true
+    }
+  ],
+  "presences": [
+    {
+      "userId": "user_sarah",
+      "lastSeenAt": "2026-10-27T08:55:03.895Z",
+      "isOnline": true
+    },
+    {
+      "userId": "user_alex",
+      "lastSeenAt": "2026-10-27T08:52:03.894Z",
+      "isOnline": true
+    },
+    {
+      "userId": "user_elena",
+      "lastSeenAt": "2026-10-27T08:30:03.894Z",
+      "isOnline": false
+    },
+    {
+      "userId": "user_marcus",
+      "lastSeenAt": "2026-10-27T07:55:03.894Z",
+      "isOnline": false
+    },
+    {
+      "userId": "user_acenv73so",
+      "lastSeenAt": "2026-10-27T09:02:18.395Z",
+      "isOnline": true
+    }
+  ]
+}

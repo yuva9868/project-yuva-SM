@@ -10,23 +10,32 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Sparkles, Menu, Plus, Bell, Trophy, BookOpen, Compass, Shield, Users, Briefcase } from 'lucide-react';
+import { Sparkles, Menu, Plus, Bell, Trophy, BookOpen, Compass, Shield, Users, Briefcase, MessageSquare } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { NotificationsDrawer } from '@/components/community/notifications-drawer';
 import { getStoredNotifications } from '@/lib/community-data';
 import { NotificationItem } from '@/lib/community-types';
+import { apiGetUnreadCount } from '@/lib/messages-client';
 
 export function Header() {
   const { user, logout } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [notifications, setNotifications] = useState<NotificationItem[]>([]);
+  const [unreadMessagesCount, setUnreadMessagesCount] = useState<number>(0);
 
   useEffect(() => {
     if (user) {
       setNotifications(getStoredNotifications(user.id));
+      apiGetUnreadCount(user).then(count => setUnreadMessagesCount(count));
+      // Poll unread messages count periodically
+      const interval = setInterval(() => {
+        apiGetUnreadCount(user).then(count => setUnreadMessagesCount(count));
+      }, 5000);
+      return () => clearInterval(interval);
     } else {
       setNotifications(getStoredNotifications());
+      setUnreadMessagesCount(0);
     }
   }, [user]);
 
@@ -63,6 +72,15 @@ export function Header() {
                 <Users className="w-4 h-4 text-emerald-400" />
                 <span>Mentors</span>
               </Link>
+              <Link href="/messages" className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors relative">
+                <MessageSquare className="w-4 h-4 text-primary" />
+                <span>Messages</span>
+                {unreadMessagesCount > 0 && (
+                  <span className="w-4 h-4 rounded-full bg-primary text-primary-foreground text-[10px] font-bold flex items-center justify-center">
+                    {unreadMessagesCount}
+                  </span>
+                )}
+              </Link>
               <Link href="/community/leaderboard" className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors">
                 <Trophy className="w-4 h-4 text-amber-500" />
                 <span>Leaderboard</span>
@@ -89,6 +107,21 @@ export function Header() {
               <Button size="sm" className="gap-2 shadow-md shadow-primary/20 font-semibold">
                 <Plus className="w-4 h-4" />
                 <span>Share Project</span>
+              </Button>
+            </Link>
+
+            {/* Direct Messages Icon Button */}
+            <Link href="/messages">
+              <Button
+                variant="ghost"
+                size="icon"
+                title="Direct Messages"
+                className="relative rounded-full hover:bg-muted text-muted-foreground hover:text-foreground"
+              >
+                <MessageSquare className="w-5 h-5" />
+                {unreadMessagesCount > 0 && (
+                  <span className="absolute top-1.5 right-1.5 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-background" />
+                )}
               </Button>
             </Link>
 
@@ -133,6 +166,19 @@ export function Header() {
                   </div>
                   <DropdownMenuItem asChild>
                     <Link href="/dashboard" className="cursor-pointer">User Dashboard</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/messages" className="cursor-pointer flex items-center justify-between font-medium">
+                      <span className="flex items-center gap-2">
+                        <MessageSquare className="w-3.5 h-3.5 text-primary" />
+                        <span>Direct Messages</span>
+                      </span>
+                      {unreadMessagesCount > 0 && (
+                        <span className="w-4 h-4 rounded-full bg-primary text-primary-foreground text-[10px] font-bold flex items-center justify-center">
+                          {unreadMessagesCount}
+                        </span>
+                      )}
+                    </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link href="/workspaces" className="cursor-pointer flex items-center justify-between font-medium text-primary">
@@ -183,6 +229,17 @@ export function Header() {
           <nav className="md:hidden border-t border-border bg-card px-4 py-4 space-y-3">
             <Link href="/community" className="block text-sm font-medium hover:text-primary transition-colors">
               Explore Community Ecosystem
+            </Link>
+            <Link href="/messages" className="flex items-center justify-between text-sm font-semibold text-primary hover:underline transition-colors">
+              <span className="flex items-center gap-2">
+                <MessageSquare className="w-4 h-4 text-primary" />
+                <span>Direct Messages</span>
+              </span>
+              {unreadMessagesCount > 0 && (
+                <span className="w-4 h-4 rounded-full bg-primary text-primary-foreground text-[10px] font-bold flex items-center justify-center">
+                  {unreadMessagesCount}
+                </span>
+              )}
             </Link>
             <Link href="/mentors" className="block text-sm font-medium hover:text-primary transition-colors">
               Mentors & Expert Directory

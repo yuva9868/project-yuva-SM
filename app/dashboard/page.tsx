@@ -442,7 +442,14 @@ function DashboardContent() {
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <Link href={`/messages?userId=${collab.senderId}&projectId=${collab.projectId}`}>
+                          <Button size="sm" variant="outline" className="text-xs font-semibold gap-1.5 rounded-xl border-primary/30 text-primary hover:bg-primary/10">
+                            <MessageSquare className="w-3.5 h-3.5" />
+                            <span>Discuss in DM</span>
+                          </Button>
+                        </Link>
+
                         {collab.status === 'pending' ? (
                           <>
                             <Button size="sm" variant="outline" onClick={() => handleUpdateCollabStatus(collab.id, 'declined')} className="text-xs text-rose-500 rounded-xl">

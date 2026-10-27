@@ -45,7 +45,8 @@ import {
   X, 
   Check, 
   Sparkles,
-  Milestone as MilestoneIcon
+  Milestone as MilestoneIcon,
+  MessageSquare
 } from 'lucide-react';
 
 export default function FounderProfilePage() {
@@ -247,20 +248,30 @@ export default function FounderProfilePage() {
                   </Button>
                 </>
               ) : (
-                <Button
-                  variant={isFollowing ? 'outline' : 'default'}
-                  onClick={handleFollowToggle}
-                  className="gap-2 font-bold rounded-xl text-xs"
-                >
-                  <UserPlus className="w-4 h-4" />
-                  <span>{isFollowing ? 'Following' : 'Follow Founder'}</span>
-                </Button>
+                <>
+                  <Link href={`/messages?userId=${founder.id}`}>
+                    <Button
+                      className="gap-2 font-bold rounded-xl text-xs bg-primary text-primary-foreground shadow-sm shadow-primary/20"
+                    >
+                      <MessageSquare className="w-4 h-4" />
+                      <span>Direct Message</span>
+                    </Button>
+                  </Link>
+                  <Button
+                    variant={isFollowing ? 'outline' : 'secondary'}
+                    onClick={handleFollowToggle}
+                    className="gap-2 font-bold rounded-xl text-xs"
+                  >
+                    <UserPlus className="w-4 h-4" />
+                    <span>{isFollowing ? 'Following' : 'Follow'}</span>
+                  </Button>
+                </>
               )}
 
               <Link href="/submit">
-                <Button className="gap-2 font-bold rounded-xl text-xs shadow-md shadow-primary/20">
+                <Button variant="outline" className="gap-2 font-bold rounded-xl text-xs">
                   <Plus className="w-4 h-4" />
-                  <span>Share New Project</span>
+                  <span>Share Project</span>
                 </Button>
               </Link>
             </div>
